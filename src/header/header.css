@@ -1,0 +1,20 @@
+.aloe-vera-links a:hover {
+  color: var(--main-green);
+}
+.shopping-cart {
+  cursor: pointer;
+  background-color: var(--main-light-purple);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--main-light-purple-transparent);
+}
+.shopping-cart:hover {
+  background-color: var(--main-light-purple-transparent);
+  border: 1px solid var(--main-light-purple);
+}
+.aloe-vera-links a {
+  font-weight: 500;
+}

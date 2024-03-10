@@ -1,0 +1,21 @@
+.home {
+  background: var(--main-light);
+}
+.left-text {
+  background: #ffffff75;
+  padding-left: 55px;
+  display: flex;
+  align-items: center;
+}
+.right-text {
+  text-align: center;
+}
+.title {
+  font-size: 2.5rem;
+}
+.subtext {
+  width: 311px;
+}
+.image {
+  width: -webkit-fill-available;
+}
