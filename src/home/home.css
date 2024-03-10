@@ -2,7 +2,6 @@
   background: var(--main-light);
 }
 .left-text {
-  background: #ffffff75;
   padding-left: 55px;
   display: flex;
   align-items: center;
