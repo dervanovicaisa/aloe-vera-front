@@ -43,8 +43,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: rgb(67, 109, 67);
+  background-color: #75b798;
 }
 .product-btn:hover {
-  background-color: #75b798 !important;
+  background-color: darkolivegreen !important;
 }
