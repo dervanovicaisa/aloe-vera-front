@@ -5,7 +5,7 @@ import { Flower2 } from "react-bootstrap-icons";
 function About() {
   return (
     <div id="about" className="border-bottom">
-      <Row className="px-5 pt-5 pb-4 m-0">
+      <Row className="px-5 py-5 m-0">
         <Col lg={5}>
           <Card className="w-75 box-shadow-img border-0">
             <Card.Img src={CradImage}></Card.Img>

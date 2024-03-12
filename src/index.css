@@ -35,6 +35,15 @@ code {
   background-color: var(--main-light-purple-transparent);
   border: 1px solid var(--main-light-purple);
 }
+.main-btn {
+  background-color: var(--main-green-ligth);
+  border: 1px solid var(--main-green);
+  color: black;
+}
+.main-btn:hover {
+  background-color: var(--main-green);
+  border: 1px solid var(--main-green-ligth);
+}
 .fit-content {
   width: fit-content !important;
 }
