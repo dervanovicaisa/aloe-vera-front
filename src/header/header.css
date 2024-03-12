@@ -18,3 +18,11 @@
 .aloe-vera-links a {
   font-weight: 500;
 }
+.products-toggle {
+  border: unset;
+  background-color: transparent;
+  padding: 0;
+}
+.dropdown-menu-products {
+  height: 10px;
+}

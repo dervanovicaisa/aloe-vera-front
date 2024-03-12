@@ -3,7 +3,7 @@ import "./products.css";
 import { Col, InputGroup, Row } from "react-bootstrap";
 import ProductCard from "../card/Card";
 
-function Products() {
+function Products({ setProductsCategories }) {
   const [productCategories, setProductCategories] = useState([]);
   const [isData, setIsData] = useState(false);
 
@@ -19,6 +19,7 @@ function Products() {
       .then((data) => {
         setIsData(true);
         setProductCategories(data);
+        setProductsCategories(data);
       })
       .catch((error) => {
         setIsData(false);
@@ -35,7 +36,7 @@ function Products() {
   }
 
   return (
-    <div id="products">
+    <div id="products" className="px-5">
       <Row className="mx-0 align-items-center">
         <Col>
           <h3 className="text-center py-5">Our Products</h3>
@@ -44,9 +45,9 @@ function Products() {
       {Object.keys(productCategories).map((category) => (
         <div key={category} id={category} className="pb-5">
           {/* <h3 className="py-3">{category}</h3> */}
-          <Row className="gap-5 justify-content-center mx-0">
+          <Row className="gap-1 justify-content-center mx-0">
             {productCategories[category].map((product, idx) => (
-              <Col lg={3} key={idx}>
+              <Col lg={3} key={idx} className="pb-3">
                 <ProductCard
                   src={product.image_url}
                   title={product.name}

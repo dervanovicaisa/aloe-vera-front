@@ -6,6 +6,18 @@
   --main-light-purple-transparent: #ededff75;
   --main-light: #ead9db;
   --main-green-ligth: #d9eada;
+  --light-green: #f5f5ed;
+  --main-orange: #fbbf7b;
+  --dark-green: #303b23;
+  --brown: #b97a4e;
+  --purple: rgb(133 133 177);
+  /* Colors */
+  --brand-color: hsl(46, 100%, 50%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
 }
 
 body {
@@ -76,4 +88,15 @@ code {
 ::-webkit-overflow-scrolling:touch {
   background: #707070;
   width: 5px;
+}
+.btn:active,
+.btn:hover,
+.btn.show {
+  /* color: var(--bs-btn-active-color); */
+  background-color: unset !important;
+  border-color: unset !important;
+}
+.dropdown-item:active {
+  background-color: var(--light-green) !important;
+  color: var(--dark-green) !important;
 }
