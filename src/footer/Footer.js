@@ -20,12 +20,21 @@ const Footer = () => {
                 <a
                   className="mx-1"
                   href="https://www.instagram.com/forever_living_products_vh"
+                  target="_blank"
                 >
                   @forever_living_products_vh
                 </a>
               </span>
-              <span>Email: valdetahadzajlic@gmail.com</span>
-              <span>Phone: 069549938</span>
+              <span>
+                Email:{" "}
+                <a
+                  className="text-decoration-none"
+                  href="mailto:valdetahadzajlic@gmail.com"
+                >
+                  valdetahadzajlic@gmail.com
+                </a>
+              </span>
+              {/* <span>Phone: 069549938</span> */}
             </address>
           </Col>
           <Col md={6} className="footer-form">

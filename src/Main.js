@@ -1,11 +1,15 @@
 import About from "./about/About";
 import Home from "./home/Home";
 
-function Main({ productsCategories }) {
+function Main({ productsCategories, product, setProduct }) {
   return (
     <>
       <Home />
-      <About productsCategories={productsCategories} />
+      <About
+        productsCategories={productsCategories}
+        product={product}
+        setProduct={setProduct}
+      />
     </>
   );
 }

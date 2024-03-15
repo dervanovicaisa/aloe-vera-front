@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./products.css";
 import { Button, Col, Dropdown, Row } from "react-bootstrap";
-import ProductCard from "../card/Card";
+import ProductCard from "../assets/card/Card";
 import { ArrowUp, Funnel } from "react-bootstrap-icons";
 
-function Products({ productCategories, isData }) {
+function Products({ productCategories, isData, product, setProduct }) {
   const [item, setItem] = useState("");
 
   useEffect(() => {
@@ -99,12 +99,14 @@ function Products({ productCategories, isData }) {
               eco-friendly skin care and non-GMO.
             </p>
           </Col> */}
-          {productCategories[category].map((product, idx) => (
+          {productCategories[category].map((pr, idx) => (
             <div className="product-col" key={idx}>
               <ProductCard
-                src={product.image_url}
-                title={product.name}
-                description={product.price}
+                src={pr.image_url}
+                title={pr.name}
+                description={pr.price}
+                product={product}
+                setProduct={setProduct}
               />
             </div>
           ))}

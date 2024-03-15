@@ -5,11 +5,13 @@ import Products from "./products/Products";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./Main";
 import Footer from "./footer/Footer";
-
+import Loader from "./assets/loader/Loader";
+import Cart from "./cart/Cart";
+import { Toaster } from "react-hot-toast";
 function App() {
   const [productsCategories, setProductCategories] = useState([]);
   const [isData, setIsData] = useState(false);
-
+  const [product, setProduct] = useState([]);
   const getProductsList = () => {
     fetch(
       "https://raw.githubusercontent.com/dervanovicaisa/data/main/data.json"
@@ -35,10 +37,15 @@ function App() {
     if (productsCategories.length === 0) {
       getProductsList();
     }
+    console.log({ product });
   }, []);
 
   if (!isData) {
-    return "Loading...";
+    return (
+      <div className="d-flex align-items-center justify-content-center">
+        <Loader />
+      </div>
+    );
   }
   return (
     <div className="App">
@@ -48,7 +55,13 @@ function App() {
           <Route path="/">
             <Route
               index
-              element={<Main productsCategories={productsCategories} />}
+              element={
+                <Main
+                  productsCategories={productsCategories}
+                  product={product}
+                  setProduct={setProduct}
+                />
+              }
             ></Route>
             <Route
               path="products"
@@ -56,13 +69,20 @@ function App() {
                 <Products
                   productCategories={productsCategories}
                   isData={isData}
+                  product={product}
+                  setProduct={setProduct}
                 />
               }
+            ></Route>
+            <Route
+              path="cart"
+              element={<Cart product={product} setProduct={setProduct} />}
             ></Route>
           </Route>
         </Routes>
       </BrowserRouter>
       <Footer />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }

@@ -6,7 +6,7 @@ function Header() {
   return (
     <Navbar className="d-block border-bottom">
       <div className="px-5 d-flex justify-content-between align-items-center">
-        <Navbar.Brand href="#home" className="d-flex flex-column">
+        <Navbar.Brand href="/#home" className="d-flex flex-column">
           <Image src={Logo} width={60} className="m-auto" alt="Aloe vera" />
         </Navbar.Brand>
         <Nav className="aloe-vera-links">
@@ -14,9 +14,9 @@ function Header() {
           <Nav.Link href="/#about">About</Nav.Link>
           <Nav.Link href="/#products">Products</Nav.Link>
         </Nav>
-        <div className="shopping-cart">
+        <a className="shopping-cart text-decoration-none text-dark" href="cart">
           <Basket2 />
-        </div>
+        </a>
       </div>
     </Navbar>
   );

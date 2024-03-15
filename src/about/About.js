@@ -2,8 +2,8 @@ import "./about.css";
 import CradImage from "../assets/cover-img.jpg";
 import { Card, Col, Row } from "react-bootstrap";
 import { ArrowRightCircleFill, Flower2 } from "react-bootstrap-icons";
-import ProductCard from "../card/Card";
-function About({ productsCategories }) {
+import ProductCard from "../assets/card/Card";
+function About({ productsCategories, product, setProduct }) {
   return (
     <div id="about" className="border-bottom">
       <Row className="px-5 py-5 m-0">
@@ -59,19 +59,19 @@ function About({ productsCategories }) {
         </Col>
         <Col lg={12} className="py-5 px-5 box-card">
           <Row className="mx-0 justify-content-center">
-            {productsCategories["foreverFit"]
-              .slice(0, 3)
-              .map((product, idx) => {
-                return (
-                  <Col lg={3} key={idx} className="popular-product-card">
-                    <ProductCard
-                      src={product.image_url}
-                      title={product.name}
-                      description={product.price}
-                    />
-                  </Col>
-                );
-              })}
+            {productsCategories["foreverFit"].slice(0, 3).map((pr, idx) => {
+              return (
+                <Col lg={3} key={idx} className="popular-product-card">
+                  <ProductCard
+                    src={pr.image_url}
+                    title={pr.name}
+                    description={pr.price}
+                    product={product}
+                    setProduct={setProduct}
+                  />
+                </Col>
+              );
+            })}
           </Row>
         </Col>
         <Col lg={12} className="text-center see-all">
