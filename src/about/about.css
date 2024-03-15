@@ -1,3 +1,58 @@
+.flower-bg-image {
+  /* background: radial-gradient(
+    circle,
+    var(--main-green),
+    var(--main-light-purple)
+  ) !important; */
+  background-color: white !important;
+}
+.popular-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+.popular-text {
+  width: 350px;
+  text-align: center;
+  color: #212529 !important;
+  font-weight: 400;
+}
+.popular-title {
+  color: #212529;
+  font-size: 2.3rem;
+}
+.see-all {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.see-all a {
+  color: #212529 !important;
+  font-weight: 400;
+  transition: transform 0.3s ease-in-out;
+}
+.see-all a:hover {
+  transform: translateY(-5px);
+}
+.see-all svg {
+  font-size: 1.8rem;
+  color: #212529 !important;
+  border-radius: 20px;
+}
 .box-shadow-img {
   box-shadow: rgb(133 133 177) 10px 10px;
+}
+.popular-product-card .card {
+  box-shadow: #eed284da 10px 10px;
+  transition: box-shadow 1.2s ease;
+  border: unset;
+}
+.popular-product-card .card:hover {
+  /* box-shadow: unset; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  /* border: 1px solid var(--main-light) !important; */
 }

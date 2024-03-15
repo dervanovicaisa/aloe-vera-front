@@ -1,8 +1,9 @@
 import "./about.css";
 import CradImage from "../assets/cover-img.jpg";
 import { Card, Col, Row } from "react-bootstrap";
-import { Flower2 } from "react-bootstrap-icons";
-function About() {
+import { ArrowRightCircleFill, Flower2 } from "react-bootstrap-icons";
+import ProductCard from "../card/Card";
+function About({ productsCategories }) {
   return (
     <div id="about" className="border-bottom">
       <Row className="px-5 py-5 m-0">
@@ -46,6 +47,38 @@ function About() {
               </p>
             </Col>
           </Row>
+        </Col>
+      </Row>
+      <Row id="products" className="m-0 py-5 gap-3  flower-bg-image">
+        <Col lg={12} className="popular-box pt-3">
+          <h3 className="popular-title">Popular</h3>
+          <p className="popular-text">
+            All of our products are 6500 toxin free, certified organic,
+            eco-friendly skin care and non-GMO.
+          </p>
+        </Col>
+        <Col lg={12} className="py-5 px-5 box-card">
+          <Row className="mx-0 justify-content-center">
+            {productsCategories["foreverFit"]
+              .slice(0, 3)
+              .map((product, idx) => {
+                return (
+                  <Col lg={3} key={idx} className="popular-product-card">
+                    <ProductCard
+                      src={product.image_url}
+                      title={product.name}
+                      description={product.price}
+                    />
+                  </Col>
+                );
+              })}
+          </Row>
+        </Col>
+        <Col lg={12} className="text-center see-all">
+          <a href="products">
+            See All{" "}
+            <ArrowRightCircleFill className="mx-2"></ArrowRightCircleFill>
+          </a>
         </Col>
       </Row>
     </div>

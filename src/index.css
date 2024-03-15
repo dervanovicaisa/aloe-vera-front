@@ -1,9 +1,10 @@
 @import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 :root {
+  /* Colors */
   --main-green: #6c7e3e;
   --main-light-purple: #ededff;
-  --main-light-purple-transparent: #ededff75;
+  --main-light-purple-transparent: #e6e6fc;
   --main-light: #ead9db;
   --main-green-ligth: #d9eada;
   --light-green: #f5f5ed;
@@ -11,13 +12,17 @@
   --dark-green: #303b23;
   --brown: #b97a4e;
   --purple: rgb(133 133 177);
-  /* Colors */
   --brand-color: hsl(46, 100%, 50%);
   --black: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
+  --green-light: #a8975b;
+  --skin-color: #d1a48d;
   /* Fonts */
   --font-title: "Montserrat", sans-serif;
   --font-text: "Lato", sans-serif;
+  --border-radius-circle: 50%;
+  --circle-icon-height: 37px;
+  --circle-icon-width: 37px;
 }
 
 body {
@@ -27,11 +32,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.bg-light-green {
+  background-color: var(--main-green-ligth);
 }
 .circle-icon {
   cursor: pointer;
@@ -99,4 +108,25 @@ code {
 .dropdown-item:active {
   background-color: var(--light-green) !important;
   color: var(--dark-green) !important;
+}
+.btn-circle {
+  border-radius: var(--border-radius-circle) !important;
+  display: flex !important;
+  align-items: center !important;
+  height: var(--circle-icon-height) !important;
+  width: var(--circle-icon-width) !important;
+  justify-content: center !important;
+}
+.shadow {
+  -moz-box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 2px 19px 0px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.shadow:hover {
+  -moz-box-shadow: 3px 6px 22px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 3px 6px 22px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 3px 6px 22px 0px rgba(0, 0, 0, 0.15);
 }

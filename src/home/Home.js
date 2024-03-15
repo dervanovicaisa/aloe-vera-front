@@ -12,7 +12,9 @@ function Home() {
               Achieve a natural, smooth complecion with Aloe Vera long-lasting,
               non-oily coverage fundation
             </p>
-            <Button className="btn-success shop-now w-50">Shop now</Button>
+            <Button className="btn-success shop-now w-50" href="products">
+              Shop now
+            </Button>
           </div>
         </Col>
         <Col className="px-0 right-text">
