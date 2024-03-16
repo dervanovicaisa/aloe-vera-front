@@ -37,7 +37,7 @@ function App() {
     if (productsCategories.length === 0) {
       getProductsList();
     }
-  }, []);
+  }, [productsCategories.length]);
   function onProductChange(e) {
     setProduct(e);
     localStorage.setItem("productItem", JSON.stringify(product));
@@ -75,6 +75,7 @@ function App() {
               element={
                 <Products
                   productCategories={productsCategories}
+                  setProductCategories={setProductCategories}
                   isData={isData}
                   product={product}
                   setProduct={setProduct}

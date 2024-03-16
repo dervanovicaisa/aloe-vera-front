@@ -6,13 +6,15 @@ import { ArrowUp, Funnel } from "react-bootstrap-icons";
 
 function Products({
   productCategories,
+  setProductCategories,
   isData,
   product,
   setProduct,
   onProductChange,
 }) {
   const [item, setItem] = useState("");
-
+  const [filteredProducts, setFileteredProducts] = useState({});
+  const [isFiltered, setIsFiltered] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -29,7 +31,7 @@ function Products({
   function onScroll() {
     const id = document.getElementById("filterBox");
     const scrollUp = document.getElementById("scrollUp");
-    console.log({ scrollY: window.scrollY });
+    // console.log({ scrollY: window.scrollY });
     if (id !== null && scrollUp !== null) {
       if (window.scrollY > 200) {
         id.classList.add("on-scroll-box");
@@ -52,6 +54,27 @@ function Products({
   function setProductsOnChange(e) {
     onProductChange(e);
   }
+  function onSearch(e) {
+    const { value } = e.target;
+    const filteredProduct = Object.keys(productCategories).reduce(
+      (acc, cat) => {
+        const filteredProducts = productCategories[cat].filter((el2) =>
+          el2.name.toLowerCase().includes(value.toLowerCase())
+        );
+        if (filteredProducts.length > 0) {
+          acc[cat] = filteredProducts;
+        }
+        return acc;
+      },
+      {}
+    );
+    if (Object.keys(filteredProduct).length > 0) {
+      setFileteredProducts({ ...filteredProduct });
+      setIsFiltered(true);
+    } else {
+      setIsFiltered(false);
+    }
+  }
   return (
     <div id="products" className="px-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center">
@@ -70,6 +93,7 @@ function Products({
             type="text"
             className="form-control search"
             placeholder="Search..."
+            onChange={(e) => onSearch(e)}
           ></input>
         </Col>
         <Col lg={3}>
@@ -96,34 +120,29 @@ function Products({
           </Dropdown>
         </Col>
       </Row>
-      {Object.keys(productCategories).map((category) => (
-        <Row
-          className="mx-0 justify-content-center category-box"
-          key={category}
-          id={category}
-        >
-          {/* <Col lg={12} className="py-3">
-            <h4 className="text-uppercase">{category}</h4>
-            <p className="popular-text text-start w-50">
-              All of our products are 6500 toxin free, certified organic,
-              eco-friendly skin care and non-GMO.
-            </p>
-          </Col> */}
-          {productCategories[category].map((pr, idx) => (
-            <div className="product-col" key={idx}>
-              <ProductCard
-                src={pr.image_url}
-                title={pr.name}
-                description={pr.price}
-                url={pr.url}
-                product={product}
-                setProduct={setProduct}
-                setProductsOnChange={setProductsOnChange}
-              />
-            </div>
-          ))}
-        </Row>
-      ))}
+      {Object.keys(isFiltered ? filteredProducts : productCategories).map(
+        (category) => (
+          <Row
+            className="mx-0 justify-content-center category-box"
+            key={category}
+            id={category}
+          >
+            {productCategories[category].map((pr, idx) => (
+              <div className="product-col" key={idx}>
+                <ProductCard
+                  src={pr.image_url}
+                  title={pr.name}
+                  description={pr.price}
+                  url={pr.url}
+                  product={product}
+                  setProduct={setProduct}
+                  setProductsOnChange={setProductsOnChange}
+                />
+              </div>
+            ))}
+          </Row>
+        )
+      )}
       <div
         id="scrollUp"
         className="scroll-up-btn invisible"
