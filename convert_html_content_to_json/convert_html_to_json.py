@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 
 # Fetch the webpage content
-url = 'https://flpshop.me/forever-fit.html'
+url = 'https://flpshop.me/bezbodovna-roba/uzorci.html'
 response = requests.get(url)
 html_content = response.text
 
@@ -22,12 +22,13 @@ for item in product_items:
 #     description = item.find('div', class_='elementor-image-box-description').text.strip()
     price = item.find('span', class_='price').text.strip()
     image_url = item.find('img')['src']
-
+    urlProd = item.find('a', class_='productImg').get('href')
     product = {
         'name': name,
 #         'description': description,
         'price': price,
-        'image_url': image_url
+        'image_url': image_url,
+        'url': 'https://flpshop.me' +urlProd +'/360001800363/personal.html'
     }
 
     products.append(product)
