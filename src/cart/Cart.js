@@ -49,8 +49,8 @@ function Cart({ product, setProduct }) {
     localStorage.setItem("productItem", JSON.stringify(product));
   }
   return (
-    <Container>
-      <Row className="py-5 cart">
+    <Container className="cart">
+      <Row className="py-5">
         <Col className="text-center">
           <h3 className="popular-title text-dark">Shopping Cart</h3>
           <p className="popular-text text-dark m-auto mt-2">
@@ -139,8 +139,8 @@ function Cart({ product, setProduct }) {
           </Col>
         ) : (
           <Col lg={12} className="text-center pt-5">
-            <Inboxes size={90} />
-            <p className="mt-2"> There is no data</p>
+            <Inboxes size={200} />
+            {/* <p className="mt-3"> There is no data</p> */}
           </Col>
         )}
       </Row>
