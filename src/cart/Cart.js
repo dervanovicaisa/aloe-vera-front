@@ -2,7 +2,15 @@ import { Button, Col, Container, Image, Form, Row } from "react-bootstrap";
 import "./cart.css";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import { Inboxes } from "react-bootstrap-icons";
+import {
+  Cart2,
+  Inboxes,
+  Shop,
+  Trash,
+  Trash2,
+  Wallet,
+  Wallet2,
+} from "react-bootstrap-icons";
 function Cart({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   useEffect(() => {
@@ -31,6 +39,9 @@ function Cart({ product, setProduct }) {
       );
     }, 0);
   }
+  function caluculatePrice(el) {
+    return parseInt(el.price.split(" ")[0]) * parseInt(el.quantity);
+  }
   function onHandleChange(e, idx) {
     const { value, name } = e.target;
     product[idx].quantity = parseInt(value);
@@ -39,7 +50,7 @@ function Cart({ product, setProduct }) {
   }
   return (
     <Container>
-      <Row className="py-5">
+      <Row className="py-5 cart">
         <Col className="text-center">
           <h3 className="popular-title text-dark">Shopping Cart</h3>
           <p className="popular-text text-dark m-auto mt-2">
@@ -48,15 +59,16 @@ function Cart({ product, setProduct }) {
           </p>
         </Col>
         {product.length > 0 ? (
-          <Col lg={12} className="pt-5">
+          <Col lg={12}>
             <div className="shopping-cart-list flex-column">
               <Row className="column-labels pb-3">
                 <Col className="product-image">Image</Col>
                 <Col className="product-details">Product</Col>
                 <Col className="product-price">Price</Col>
-                <Col className="product-quantity">Quantity</Col>
-                <Col className="product-removal">Remove</Col>
+                {/* <Col className="product-quantity">Quantity</Col> */}
+                <Col className="product-removal text-center">Remove</Col>
                 <Col className="product-line-price">Total</Col>
+                <Col className="text-end">Pay</Col>
               </Row>
 
               {product.map((el, idx) => {
@@ -70,29 +82,37 @@ function Cart({ product, setProduct }) {
                         <div className="product-title">{el.name}</div>
                       </Col>
                       <Col className="product-price">{el.price}</Col>
-                      <Col className="product-quantity">
+                      {/* <Col className="product-quantity text-center">
                         <Form.Control
                           type="number"
                           min="1"
                           defaultValue={el.quantity}
                           onChange={(e) => onHandleChange(e, idx)}
                         />
-                      </Col>
-                      <Col className="product-removal">
+                      </Col> */}
+                      <Col className="product-removal text-center">
                         <Button
                           variant="danger"
                           className="remove-product"
                           onClick={() => removeItem(idx)}
                         >
-                          Remove
+                          <Trash />
                         </Button>
                       </Col>
                       <Col className="product-line-price">{el.price}</Col>
+                      <Col>
+                        <Button
+                          className="product-card-btn btn-light checkout"
+                          href={el.url}
+                        >
+                          <Wallet2 />
+                        </Button>
+                      </Col>
                     </Row>
                   </div>
                 );
               })}
-              <div className="totals">
+              {/* <div className="totals">
                 <Row className="totals-item">
                   <Col>
                     <label>Subtotal</label>
@@ -103,16 +123,7 @@ function Cart({ product, setProduct }) {
                     </div>
                   </Col>
                 </Row>
-                {/* <Row className="totals-item">
-                <Col>
-                  <label>Shipping</label>
-                </Col>
-                <Col>
-                  <div id="cart-shipping" className="totals-value">
-                    1 EUR
-                  </div>
-                </Col>
-              </Row> */}
+
                 <Row className="totals-item totals-item-total">
                   <Col>
                     <label>Grand Total</label>
@@ -123,9 +134,7 @@ function Cart({ product, setProduct }) {
                     </div>
                   </Col>
                 </Row>
-              </div>
-
-              <Button className="checkout">Checkout</Button>
+              </div> */}
             </div>
           </Col>
         ) : (

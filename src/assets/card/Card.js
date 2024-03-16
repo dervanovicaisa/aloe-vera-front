@@ -6,12 +6,13 @@ function ProductCard({
   src,
   title,
   description,
+  url,
   product,
   setProduct,
   setProductsOnChange,
 }) {
   function saveItem() {
-    product.push({ name: title, image_url: src, price: description });
+    product.push({ name: title, image_url: src, price: description, url: url });
     setProduct(product);
     setProductsOnChange(product);
     toast.success("Successfully item added to cart");

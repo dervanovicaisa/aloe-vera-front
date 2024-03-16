@@ -72,6 +72,7 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
                     src={pr.image_url}
                     title={pr.name}
                     description={pr.price}
+                    url={pr.url}
                     product={product}
                     setProduct={setProduct}
                     setProductsOnChange={setProductsOnChange}
