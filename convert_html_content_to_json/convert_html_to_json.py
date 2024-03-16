@@ -27,7 +27,7 @@ for item in product_items:
         'name': name,
 #         'description': description,
         'price': price,
-        'image_url': image_url,
+        'image_url': 'https://flpshop.me' + image_url,
         'url': 'https://flpshop.me' +urlProd +'/360001800363/personal.html'
     }
 
