@@ -59,7 +59,7 @@ function Cart({ product, setProduct }) {
           </p>
         </Col>
         {product.length > 0 ? (
-          <Col lg={12}>
+          <Col lg={12} className="pt-5">
             <div className="shopping-cart-list flex-column">
               <Row className="column-labels pb-3">
                 <Col className="product-image">Image</Col>
