@@ -4,7 +4,13 @@ import { Button, Col, Dropdown, Row } from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
 import { ArrowUp, Funnel } from "react-bootstrap-icons";
 
-function Products({ productCategories, isData, product, setProduct }) {
+function Products({
+  productCategories,
+  isData,
+  product,
+  setProduct,
+  onProductChange,
+}) {
   const [item, setItem] = useState("");
 
   useEffect(() => {
@@ -43,14 +49,18 @@ function Products({ productCategories, isData, product, setProduct }) {
       behavior: "smooth",
     });
   }
+  function setProductsOnChange(e) {
+    onProductChange(e);
+  }
   return (
     <div id="products" className="px-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center">
         <Col lg={12} className="popular-box">
           <h3 className="popular-title text-dark">Our Produtcs</h3>
-          <p className="popular-text text-dark">
-            All of our products are 6500 toxin free, certified organic,
-            eco-friendly skin care and non-GMO.
+          <p className="popular-text text-dark w-50">
+            Explore Aloe Vera's power in skincare, haircare, and wellness.
+            Pamper with soothing products. Revitalize locks. Discover health
+            benefits. Shop now!
           </p>
         </Col>
       </Row>
@@ -107,6 +117,7 @@ function Products({ productCategories, isData, product, setProduct }) {
                 description={pr.price}
                 product={product}
                 setProduct={setProduct}
+                setProductsOnChange={setProductsOnChange}
               />
             </div>
           ))}

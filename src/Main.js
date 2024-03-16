@@ -1,7 +1,10 @@
 import About from "./about/About";
 import Home from "./home/Home";
 
-function Main({ productsCategories, product, setProduct }) {
+function Main({ productsCategories, product, setProduct, onProductChange }) {
+  function setProductsOnChange(e) {
+    onProductChange(e);
+  }
   return (
     <>
       <Home />
@@ -9,6 +12,7 @@ function Main({ productsCategories, product, setProduct }) {
         productsCategories={productsCategories}
         product={product}
         setProduct={setProduct}
+        productOnChange={setProductsOnChange}
       />
     </>
   );

@@ -130,3 +130,10 @@ code {
   -webkit-box-shadow: 3px 6px 22px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 3px 6px 22px 0px rgba(0, 0, 0, 0.15);
 }
+.btn-success {
+  border: unset;
+}
+.btn-success:hover {
+  background-color: rgba(34, 121, 34, 0.705) !important;
+  /* border: unset !important; */
+}

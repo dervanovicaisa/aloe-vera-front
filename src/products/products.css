@@ -36,11 +36,12 @@
   position: fixed;
   z-index: 4;
   top: 0;
-  background: #d9eada42;
+  background: white;
   width: 100%;
   left: 0;
   margin: 0px !important;
-  padding: 98px;
+  padding: 7px 98px !important;
+  border-bottom: 1px solid var(--bs-border-color) !important;
 }
 /* .toggle-scroll {
   background: aliceblue;

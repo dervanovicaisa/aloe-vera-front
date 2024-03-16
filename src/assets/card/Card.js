@@ -2,10 +2,18 @@ import { Cart } from "react-bootstrap-icons";
 import "./card.css";
 import { Button, Card } from "react-bootstrap";
 import toast from "react-hot-toast";
-function ProductCard({ src, title, description, product, setProduct }) {
+function ProductCard({
+  src,
+  title,
+  description,
+  product,
+  setProduct,
+  setProductsOnChange,
+}) {
   function saveItem() {
     product.push({ name: title, image_url: src, price: description });
     setProduct(product);
+    setProductsOnChange(product);
     toast.success("Successfully item added to cart");
   }
   return (

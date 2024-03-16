@@ -2,7 +2,17 @@ import { Nav, Navbar, Image } from "react-bootstrap";
 import "./header.css";
 import Logo from "../assets/aloe-vera-logo.png";
 import { Basket2 } from "react-bootstrap-icons";
-function Header() {
+import { useEffect } from "react";
+function Header({ product, setProduct, onProductChange }) {
+  const LSProducts = localStorage.getItem("productItem");
+  useEffect(() => {
+    if (product.length === 0 && LSProducts !== null) {
+      const parsedArray = JSON.parse(LSProducts);
+      if (parsedArray.length > 0) {
+        setProduct(parsedArray);
+      }
+    }
+  }, []);
   return (
     <Navbar className="d-block border-bottom">
       <div className="px-5 d-flex justify-content-between align-items-center">
@@ -15,6 +25,11 @@ function Header() {
           <Nav.Link href="/#products">Products</Nav.Link>
         </Nav>
         <a className="shopping-cart text-decoration-none text-dark" href="cart">
+          {product.length > 0 ? (
+            <span className="number-of-items">{product.length}</span>
+          ) : (
+            ""
+          )}
           <Basket2 />
         </a>
       </div>

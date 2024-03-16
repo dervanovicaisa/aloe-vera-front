@@ -37,9 +37,11 @@ function App() {
     if (productsCategories.length === 0) {
       getProductsList();
     }
-    console.log({ product });
   }, []);
-
+  function onProductChange(e) {
+    setProduct(e);
+    localStorage.setItem("productItem", JSON.stringify(product));
+  }
   if (!isData) {
     return (
       <div className="d-flex align-items-center justify-content-center">
@@ -49,7 +51,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Header />
+      <Header
+        product={product}
+        setProduct={setProduct}
+        onProductChange={onProductChange}
+      />
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -60,6 +66,7 @@ function App() {
                   productsCategories={productsCategories}
                   product={product}
                   setProduct={setProduct}
+                  onProductChange={onProductChange}
                 />
               }
             ></Route>
@@ -71,6 +78,7 @@ function App() {
                   isData={isData}
                   product={product}
                   setProduct={setProduct}
+                  onProductChange={onProductChange}
                 />
               }
             ></Route>

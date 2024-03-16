@@ -3,7 +3,10 @@ import CradImage from "../assets/cover-img.jpg";
 import { Card, Col, Row } from "react-bootstrap";
 import { ArrowRightCircleFill, Flower2 } from "react-bootstrap-icons";
 import ProductCard from "../assets/card/Card";
-function About({ productsCategories, product, setProduct }) {
+function About({ productsCategories, product, setProduct, productOnChange }) {
+  function setProductsOnChange(e) {
+    productOnChange(e);
+  }
   return (
     <div id="about" className="border-bottom">
       <Row className="px-5 py-5 m-0">
@@ -27,11 +30,12 @@ function About({ productsCategories, product, setProduct }) {
                 <Flower2 />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas non orci sit amet lacus malesuada maximus sit amet at
-                sem. Quisque quis lectus id ipsum euismod pretium.Quisque quis
-                lectus id ipsum euismod pretium.Quisque quis lectus id ipsum
-                euismod pretium.Quisque quis lectus id ipsum euismod pretium.
+                Experience the revitalizing touch of Aloe Vera with our curated
+                selection of skincare and wellness essentials. From gentle
+                cleansers to nourishing creams, our Aloe Vera skincare range
+                offers hydration and balance for radiant skin. Elevate your hair
+                care routine with Aloe Vera-infused shampoos and conditioners,
+                leaving your locks soft, lustrous, and beautifully moisturized.
               </p>
             </Col>
             <Col lg={5} className="d-flex flex-column gap-4">
@@ -39,11 +43,13 @@ function About({ productsCategories, product, setProduct }) {
                 <Flower2 />
               </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas non orci sit amet lacus malesuada maximus sit amet at
-                sem. Quisque quis lectus id ipsum euismod pretium.Quisque quis
-                lectus id ipsum euismod pretium. Quisque quis lectus id ipsum
-                euismod pretium.Quisque quis lectus id ipsum euismod pretium.
+                Embrace the natural goodness of Aloe Vera with our collection of
+                soothing skincare and hair care products. Pamper your skin with
+                gentle cleansers and rejuvenating masks, while our Aloe
+                Vera-infused shampoos and conditioners provide hydration and
+                vitality to your hair. Discover the holistic benefits of Aloe
+                Vera supplements for digestive health and immune support, and
+                indulge in a renewed sense of well-being.
               </p>
             </Col>
           </Row>
@@ -53,8 +59,8 @@ function About({ productsCategories, product, setProduct }) {
         <Col lg={12} className="popular-box pt-3">
           <h3 className="popular-title">Popular</h3>
           <p className="popular-text">
-            All of our products are 6500 toxin free, certified organic,
-            eco-friendly skin care and non-GMO.
+            Discover top-rated skincare, haircare, and wellness essentials loved
+            globally.
           </p>
         </Col>
         <Col lg={12} className="py-5 px-5 box-card">
@@ -68,6 +74,7 @@ function About({ productsCategories, product, setProduct }) {
                     description={pr.price}
                     product={product}
                     setProduct={setProduct}
+                    setProductsOnChange={setProductsOnChange}
                   />
                 </Col>
               );

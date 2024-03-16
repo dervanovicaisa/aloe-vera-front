@@ -1,14 +1,235 @@
-.container {
-  margin-top: 50px;
+.shopping-cart-list .product-image {
+  float: left;
+  width: 20%;
 }
 
-.list-group-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.shopping-cart-list .product-details {
+  float: left;
+  width: 37%;
 }
 
-.cart-item-image {
-  max-width: 100%;
-  height: auto;
+.shopping-cart-list .product-price {
+  float: left;
+  width: 12%;
+}
+
+.shopping-cart-list .product-quantity {
+  float: left;
+  width: 10%;
+}
+
+.product-removal {
+  float: left;
+  width: 9%;
+}
+
+.shopping-cart-list .product-line-price {
+  float: left;
+  width: 12%;
+  text-align: right;
+}
+
+/* This is used as the traditional .clearfix class */
+.shopping-cart-list .group:before,
+.shopping-cart-list:before,
+.shopping-cart-list .column-labels:before,
+.shopping-cart-list .product:before,
+.shopping-cart-list .totals-item:before,
+.shopping-cart-list .group:after,
+.shopping-cart-list:after,
+.shopping-cart-list .column-labels:after,
+.shopping-cart-list .product:after,
+.shopping-cart-list .totals-item:after {
+  content: "";
+  display: table;
+}
+
+.shopping-cart-list .group:after,
+.shopping-cart-list:after,
+.shopping-cart-list .column-labels:after,
+.shopping-cart-list .product:after,
+.shopping-cart-list .totals-item:after {
+  clear: both;
+}
+
+.shopping-cart-list .group,
+.shopping-cart-list,
+.shopping-cart-list .column-labels,
+.shopping-cart-list .product,
+.shopping-cart-list .totals-item {
+  zoom: 1;
+}
+
+/* Apply clearfix in a few places */
+/* Apply dollar signs */
+.shopping-cart-list .product .product-price:before,
+.shopping-cart-list .product .product-line-price:before,
+.shopping-cart-list .totals-value:before {
+  content: "";
+}
+
+/* Column headers */
+.shopping-cart-list .column-labels label {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.shopping-cart-list .column-labels .product-image,
+.shopping-cart-list .column-labels .product-details,
+.shopping-cart-list .column-labels .product-removal {
+  text-indent: -9999px;
+}
+
+/* Product entries */
+.shopping-cart-list .product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.shopping-cart-list .product .product-image {
+  text-align: center;
+}
+.shopping-cart-list .product .product-image img {
+  width: 100px;
+}
+.shopping-cart-list .product .product-details .product-title {
+  margin-right: 20px;
+  /* font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium"; */
+}
+.shopping-cart-list .product .product-details .product-description {
+  margin: 5px 20px 5px 0;
+  line-height: 1.4em;
+}
+.shopping-cart-list .product .product-quantity input {
+  width: 40px;
+}
+.shopping-cart-list .product .remove-product {
+  border: 0;
+  padding: 4px 8px;
+  background-color: #c66;
+  color: #fff;
+  /* font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium"; */
+  font-size: 12px;
+  border-radius: 3px;
+}
+.shopping-cart-list .product .remove-product:hover {
+  background-color: #a44 !important;
+}
+
+/* Totals section */
+.shopping-cart-list .totals .totals-item {
+  float: right;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.shopping-cart-list .totals .totals-item label {
+  float: left;
+  clear: both;
+  width: 79%;
+  text-align: right;
+}
+.shopping-cart-list .totals .totals-item .totals-value {
+  float: right;
+  width: 21%;
+  text-align: right;
+}
+/* .shopping-cart-list .totals .totals-item-total {
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+} */
+
+.shopping-cart-list .checkout {
+  float: right;
+  border: 0;
+  margin-top: 20px;
+  padding: 6px 25px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+
+.shopping-cart-list .checkout:hover {
+  background-color: #494 !important;
+}
+.shopping-cart-list .form-control {
+  padding-right: 0.1rem;
+  padding-left: 0.1rem;
+  text-align: center;
+}
+
+/* Make adjustments for tablet */
+@media screen and (max-width: 650px) {
+  .shopping-cart-list {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+
+  .shopping-cart-list .column-labels {
+    display: none;
+  }
+
+  .shopping-cart-list .product-image {
+    float: right;
+    width: auto;
+  }
+  .shopping-cart-list .product-image img {
+    margin: 0 0 10px 10px;
+  }
+
+  .shopping-cart-list .product-details {
+    float: none;
+    margin-bottom: 10px;
+    width: auto;
+  }
+
+  .shopping-cart-list .product-price {
+    clear: both;
+    width: 70px;
+  }
+
+  .shopping-cart-list .product-quantity {
+    width: 100px;
+  }
+  .shopping-cart-list .product-quantity input {
+    margin-left: 20px;
+  }
+
+  .shopping-cart-list .product-quantity:before {
+    content: "x";
+  }
+
+  .shopping-cart-list .product-removal {
+    width: auto;
+  }
+
+  .shopping-cart-list .product-line-price {
+    float: right;
+    width: 70px;
+  }
+}
+/* Make more adjustments for phone */
+@media screen and (max-width: 350px) {
+  .shopping-cart-list .product-removal {
+    float: right;
+  }
+
+  .shopping-cart-list .product-line-price {
+    float: right;
+    clear: left;
+    width: auto;
+    margin-top: 10px;
+  }
+
+  .shopping-cart-list .product .product-line-price:before {
+    content: "Item Total: $";
+  }
+
+  .shopping-cart-list .totals .totals-item label {
+    width: 60%;
+  }
+  .shopping-cart-list .totals .totals-item .totals-value {
+    width: 40%;
+  }
 }
