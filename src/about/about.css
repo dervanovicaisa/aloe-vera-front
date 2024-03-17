@@ -45,6 +45,9 @@
 .box-shadow-img {
   box-shadow: rgb(133 133 177) 10px 10px;
 }
+.popular-product-card {
+  width: auto;
+}
 .popular-product-card .card {
   box-shadow: #eed284da 10px 10px;
   transition: box-shadow 1.2s ease;

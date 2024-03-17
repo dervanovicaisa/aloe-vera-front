@@ -18,3 +18,12 @@
 .aloe-vera-png img {
   width: 357px;
 }
+@media only screen and (max-width: 600px) {
+  .footer .container {
+    position: relative;
+    z-index: 2;
+  }
+  .aloe-vera-png img {
+    opacity: 0.5;
+  }
+}

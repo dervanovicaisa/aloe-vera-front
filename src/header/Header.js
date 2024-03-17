@@ -15,9 +15,14 @@ function Header({ product, setProduct, onProductChange }) {
   }, []);
   return (
     <Navbar className="d-block border-bottom">
-      <div className="px-5 d-flex justify-content-between align-items-center">
-        <Navbar.Brand href="/#home" className="d-flex flex-column">
-          <Image src={Logo} width={60} className="m-auto" alt="Aloe vera" />
+      <div className="px-0 px-lg-5 d-flex justify-content-between align-items-center">
+        <Navbar.Brand href="/#home">
+          <Image
+            src={Logo}
+            width={60}
+            className="m-auto logo-img"
+            alt="Aloe vera"
+          />
         </Navbar.Brand>
         <Nav className="aloe-vera-links">
           <Nav.Link href="/#home">Home</Nav.Link>

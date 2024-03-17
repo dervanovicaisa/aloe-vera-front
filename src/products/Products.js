@@ -76,19 +76,25 @@ function Products({
     }
   }
   return (
-    <div id="products" className="px-5 py-5 d-flex flex-column gap-4">
-      <Row className="mx-0 px-2 align-items-center">
+    <div
+      id="products"
+      className="px-2 px-md-5 py-5 d-flex flex-column gap-4 align-items-center justify-content-center"
+    >
+      <Row className="mx-0 px-2 align-items-center justify-content-center">
         <Col lg={12} className="popular-box">
           <h3 className="popular-title text-dark">Our Produtcs</h3>
-          <p className="popular-text text-dark w-50">
+          <p className="popular-text text-dark w-100 w-lg-50">
             Explore Aloe Vera's power in skincare, haircare, and wellness.
             Pamper with soothing products. Revitalize locks. Discover health
             benefits. Shop now!
           </p>
         </Col>
       </Row>
-      <Row className="mx-5 py-3 align-items-start" id="filterBox">
-        <Col lg={3}>
+      <Row
+        className="mx-2 mx-lg-5 py-3 align-items-start w-90 flex-nowrap"
+        id="filterBox"
+      >
+        <Col lg={3} className="col-search">
           <input
             type="text"
             className="form-control search"
@@ -123,7 +129,7 @@ function Products({
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
-            className="mx-0 justify-content-center category-box"
+            className="mx-0 justify-content-center category-box flex-column flex-md-row"
             key={category}
             id={category}
           >

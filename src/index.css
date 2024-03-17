@@ -137,3 +137,6 @@ code {
   background-color: rgba(34, 121, 34, 0.705) !important;
   /* border: unset !important; */
 }
+.w-90 {
+  width: 92%;
+}

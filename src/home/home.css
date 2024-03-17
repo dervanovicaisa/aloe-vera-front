@@ -18,3 +18,15 @@
 .image {
   width: -webkit-fill-available;
 }
+
+@media only screen and (max-width: 600px) {
+  .home {
+    background-image: url("../assets/cover-image1.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+  .left-text {
+    padding-left: 30px;
+    background: #f9fffac7;
+  }
+}
