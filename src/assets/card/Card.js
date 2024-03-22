@@ -23,7 +23,9 @@ function ProductCard({
       <Card.Body className="product-card-body">
         <Card.Title>{title}</Card.Title>
         <div className="d-flex align-items-center justify-content-between">
-          <Card.Text className="mb-0 pb-0">Price: {description}</Card.Text>
+          <Card.Text className="mb-0 pb-0 d-flex gap-1">
+            <span className="d-none d-lg-block">Price:</span> {description}
+          </Card.Text>
           <Button
             className="product-card-btn btn-light"
             onClick={() => saveItem()}

@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import "./products.css";
-import { Button, Col, Dropdown, Row } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Dropdown,
+  Form,
+  FormControl,
+  FormGroup,
+  Row,
+} from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
 import { ArrowUp, Funnel } from "react-bootstrap-icons";
 
@@ -76,10 +84,7 @@ function Products({
     }
   }
   return (
-    <div
-      id="products"
-      className="px-2 px-md-5 py-5 d-flex flex-column gap-4 align-items-center justify-content-center"
-    >
+    <div id="products" className="px-2 px-md-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center justify-content-center">
         <Col lg={12} className="popular-box">
           <h3 className="popular-title text-dark">Our Produtcs</h3>
@@ -90,19 +95,18 @@ function Products({
           </p>
         </Col>
       </Row>
-      <Row
-        className="mx-2 mx-lg-5 py-3 align-items-start w-90 flex-nowrap"
-        id="filterBox"
-      >
+      <Row className="mx-2 mx-lg-5 py-3" id="filterBox">
         <Col lg={3} className="col-search">
-          <input
-            type="text"
-            className="form-control search"
-            placeholder="Search..."
-            onChange={(e) => onSearch(e)}
-          ></input>
+          <FormGroup>
+            <FormControl
+              type="text"
+              className="search"
+              placeholder="Search..."
+              onChange={(e) => onSearch(e)}
+            ></FormControl>
+          </FormGroup>
         </Col>
-        <Col lg={3}>
+        <Col>
           <Dropdown className="dropdown-menu-products">
             <Dropdown.Toggle
               className="products-toggle text-dark text-uppercase"
@@ -129,7 +133,7 @@ function Products({
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
-            className="mx-0 justify-content-center category-box flex-column flex-md-row"
+            className="mx-0 justify-content-center category-box"
             key={category}
             id={category}
           >
