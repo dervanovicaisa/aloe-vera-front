@@ -95,45 +95,48 @@ function Products({
           </p>
         </Col>
       </Row>
-      <Row className="mx-2 mx-lg-5 py-3" id="filterBox">
-        <Col lg={3} className="col-search">
-          <FormGroup>
-            <FormControl
-              type="text"
-              className="search"
-              placeholder="Search..."
-              onChange={(e) => onSearch(e)}
-            ></FormControl>
-          </FormGroup>
-        </Col>
-        <Col>
-          <Dropdown className="dropdown-menu-products">
-            <Dropdown.Toggle
-              className="products-toggle text-dark text-uppercase"
-              id="productsToggle"
-            >
-              <b>{item ? item : <Funnel />}</b>
-            </Dropdown.Toggle>
+      <Row className="py-3" id="filterBox">
+        <div className="row search">
+          {" "}
+          <Col lg={3} className="col-search">
+            <FormGroup>
+              <FormControl
+                type="text"
+                className="search"
+                placeholder="Search..."
+                onChange={(e) => onSearch(e)}
+              ></FormControl>
+            </FormGroup>
+          </Col>
+          <Col>
+            <Dropdown className="dropdown-menu-products">
+              <Dropdown.Toggle
+                className="products-toggle text-dark text-uppercase"
+                id="productsToggle"
+              >
+                <b>{item ? item : <Funnel />}</b>
+              </Dropdown.Toggle>
 
-            <Dropdown.Menu>
-              {Object.keys(productCategories).map((category) => (
-                <Dropdown.Item
-                  key={category}
-                  href={"#" + category}
-                  className="text-uppercase"
-                  onClick={() => onClickSetCategory(category)}
-                >
-                  {category}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
+              <Dropdown.Menu>
+                {Object.keys(productCategories).map((category) => (
+                  <Dropdown.Item
+                    key={category}
+                    href={"#" + category}
+                    className="text-uppercase"
+                    onClick={() => onClickSetCategory(category)}
+                  >
+                    {category}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        </div>
       </Row>
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
-            className="mx-0 justify-content-center category-box"
+            className="mx-0 category-box gap-lg-4"
             key={category}
             id={category}
           >

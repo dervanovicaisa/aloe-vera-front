@@ -49,7 +49,7 @@ function Cart({ product, setProduct }) {
   //   localStorage.setItem("productItem", JSON.stringify(product));
   // }
   return (
-    <Container>
+    <Container style={{ height: "100vh" }}>
       <Row className="pt-5">
         <Col className="text-center">
           <h3 className="popular-title text-dark">Shopping Cart</h3>

@@ -40,7 +40,7 @@
   width: 100%;
   left: 0;
   margin: 0px !important;
-  padding: 7px 100px !important;
+  padding: 7px 78px !important;
   border-bottom: 1px solid var(--bs-border-color) !important;
 }
 /* .toggle-scroll {
@@ -69,6 +69,10 @@
   width: -webkit-fill-available;
   padding: 80px;
 } */
+#products {
+  width: 95%;
+  margin: auto;
+}
 @media only screen and (max-width: 600px) {
   .col-search {
     width: auto;
@@ -85,5 +89,12 @@
   }
   .w-lg-50 {
     width: unset !important;
+  }
+  /* .search {
+    width: unset;
+    margin: unset;
+  } */
+  #products {
+    width: 98%;
   }
 }
