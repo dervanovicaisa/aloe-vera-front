@@ -21,6 +21,7 @@ const Footer = () => {
                   className="mx-1"
                   href="https://www.instagram.com/forever_living_products_vh"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   @forever_living_products_vh
                 </a>

@@ -12,7 +12,7 @@ function Header({ product, setProduct, onProductChange }) {
         setProduct(parsedArray);
       }
     }
-  }, []);
+  }, [product.length, LSProducts, setProduct]);
   return (
     <Navbar className="d-block border-bottom px-2 px-lg-0">
       <div className="px-0 px-lg-5 d-flex justify-content-between align-items-center">

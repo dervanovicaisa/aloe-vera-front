@@ -25,7 +25,7 @@ function Cart({ product, setProduct }) {
       });
       setProduct(parsedArray);
     }
-  }, [product.length]);
+  }, [product.length, LSProducts, setProduct]);
   function removeItem(id) {
     const removedItems = product.filter((el, idx) => idx !== id);
     setProduct(removedItems);
