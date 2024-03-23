@@ -39,7 +39,7 @@ function App() {
     }
   }, [productsCategories.length]);
   function onProductChange(e) {
-    setProduct(e);
+    setProduct([...e]);
     localStorage.setItem("productItem", JSON.stringify(product));
   }
   if (!isData) {

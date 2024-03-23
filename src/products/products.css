@@ -106,7 +106,8 @@
     padding: 0px !important;
   }
   .category-box {
-    gap: 0px 31px;
+    gap: 0px 20px;
+    justify-content: center;
   }
   .scroll-up-btn {
     right: 14px;
@@ -115,7 +116,7 @@
     width: auto;
   }
   .on-scroll-box {
-    padding: 10px 0px !important;
+    padding: 10px 0px 10px 14px !important;
     width: 100% !important;
   }
   .w-90 {

@@ -9,7 +9,7 @@ import {
   Row,
 } from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
-import { ArrowUp, Funnel } from "react-bootstrap-icons";
+import { ArrowUp, Funnel, X } from "react-bootstrap-icons";
 
 function Products({
   productCategories,
@@ -103,45 +103,45 @@ function Products({
             benefits. Shop now!
           </p>
         </Col>
-      </Row>
-      <Row className="py-3" id="filterBox">
-        <div className="row search">
-          {" "}
-          <Col lg={3} className="col-search">
-            <FormGroup>
-              <FormControl
-                type="text"
-                className="search"
-                placeholder="Search..."
-                onChange={(e) => onSearch(e)}
-              ></FormControl>
-            </FormGroup>
-          </Col>
-          <Col>
-            <Dropdown className="dropdown-menu-products">
-              <Dropdown.Toggle
-                className="products-toggle text-dark text-uppercase"
-                id="productsToggle"
-              >
-                <b>{item ? item : <Funnel />}</b>
-              </Dropdown.Toggle>
+        <Col lg={12} className="pb-3 pt-5 px-0" id="filterBox">
+          <Row className="search">
+            <Col lg={3} className="col">
+              <FormGroup>
+                <FormControl
+                  type="text"
+                  className="search"
+                  placeholder="Search..."
+                  onChange={(e) => onSearch(e)}
+                ></FormControl>
+              </FormGroup>
+            </Col>
+            <Col>
+              <Dropdown className="dropdown-menu-products">
+                <Dropdown.Toggle
+                  className="products-toggle text-dark text-uppercase"
+                  id="productsToggle"
+                >
+                  <b>{item ? item : <Funnel />}</b>
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu>
-                {Object.keys(productCategories).map((category) => (
-                  <Dropdown.Item
-                    key={category}
-                    href={"#" + category}
-                    className="text-uppercase"
-                    onClick={() => onClickSetCategory(category)}
-                  >
-                    {category}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col>
-        </div>
+                <Dropdown.Menu>
+                  {Object.keys(productCategories).map((category) => (
+                    <Dropdown.Item
+                      key={category}
+                      href={"#" + category}
+                      className="text-uppercase"
+                      onClick={() => onClickSetCategory(category)}
+                    >
+                      {category}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+            </Col>
+          </Row>
+        </Col>
       </Row>
+      {/* <Row className="py-3" id="filterBox"></Row> */}
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
