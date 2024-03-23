@@ -4,7 +4,7 @@ import AloeVerPng from "../assets/aloe-vera.png";
 import "./footer.css";
 const Footer = () => {
   return (
-    <footer className="footer mt-auto pt-5 border-top">
+    <footer id="footer" className="footer mt-auto pt-5 border-top">
       <Container className="pt-lg-4 pt-0">
         <Row className="pb-5">
           <Col md={4}>

@@ -39,6 +39,7 @@ function Products({
   function onScroll() {
     const id = document.getElementById("filterBox");
     const scrollUp = document.getElementById("scrollUp");
+    const footer = document.getElementById("footer");
     // console.log({ scrollY: window.scrollY });
     if (id !== null && scrollUp !== null) {
       if (window.scrollY > 200) {
@@ -48,8 +49,17 @@ function Products({
         id.classList.remove("on-scroll-box");
         scrollUp.classList.add("invisible");
       }
-      if (window.scrollY >= 9100) {
-        scrollUp.classList.add("invisible");
+      if (footer !== null) {
+        console.log({
+          scrollY: window.scrollY,
+          height: document.documentElement.scrollHeight - footer.offsetHeight,
+        });
+        if (
+          window.scrollY >=
+          document.documentElement.scrollHeight - footer.offsetHeight - 1000
+        ) {
+          scrollUp.classList.add("invisible");
+        }
       }
     }
   }

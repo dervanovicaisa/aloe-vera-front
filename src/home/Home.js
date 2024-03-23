@@ -3,7 +3,7 @@ import "./home.css";
 import AloeVeraImage from "../assets/cover-image1.jpg";
 function Home() {
   return (
-    <div className=" border-bottom">
+    <div id="home" className="border-bottom">
       <Row className="home px-0 mx-0 home">
         <Col lg={5} className="left-text py-5 py-lg-0">
           <div className="w-100 w-lg-75 d-lg-flex flex-column gap-3 d-none ">

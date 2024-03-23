@@ -11,7 +11,10 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
   }
   return (
     <div id="about" className="border-bottom d-flex flex-column">
-      <Row className="px-lg-5 px-2 pt-5 pb-3 py-lg-5 m-0 gap-lg-3">
+      <Row
+        id="about-row"
+        className="px-lg-5 px-2 pt-5 pb-3 py-lg-5 m-0 gap-lg-3"
+      >
         <Col lg={12} className="d-flex d-lg-none pb-4 pb-lg-0">
           <h4>
             We create skincare using the nest ingredients from aloe vera plants.
@@ -148,7 +151,7 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
       </Row>
       {/* mobile version */}
       <Row
-        id="products"
+        id="products-list"
         className="d-flex d-lg-none m-0 pb-5 pt-3 py-lg-5 gap-3 justify-content-center flex-column flower-bg-image"
       >
         <Col lg={12} className="popular-box pt-3">

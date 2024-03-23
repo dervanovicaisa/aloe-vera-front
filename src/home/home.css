@@ -23,7 +23,7 @@
   top: 156px;
   margin-left: 20px;
 }
-@media only screen and (max-width: 600px) {
+@media (max-width: 700px) and (min-width: 425px) {
   .home {
     background-image: url("../assets/cover-image1.jpg");
     background-size: cover;
@@ -34,5 +34,21 @@
     padding-left: 30px;
     background: #f1f1f1b5;
     height: 440px;
+  }
+}
+@media only screen and (max-width: 424px) {
+  #mobile-text {
+    top: 90px;
+  }
+  .left-text {
+    height: 375px;
+    padding-left: 30px;
+    background: #f1f1f1b5;
+  }
+  .home {
+    background-image: url("../assets/cover-image1.jpg");
+    background-size: cover;
+    background-blend-mode: darken;
+    background-position: -135px;
   }
 }

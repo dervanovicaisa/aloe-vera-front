@@ -14,7 +14,7 @@ function Header({ product, setProduct, onProductChange }) {
     }
   }, []);
   return (
-    <Navbar className="d-block border-bottom">
+    <Navbar className="d-block border-bottom px-2 px-lg-0">
       <div className="px-0 px-lg-5 d-flex justify-content-between align-items-center">
         <Navbar.Brand href="/#home">
           <Image
@@ -29,8 +29,14 @@ function Header({ product, setProduct, onProductChange }) {
           <Nav.Link href="/#about" className="d-none d-lg-block">
             About
           </Nav.Link>
-          <Nav.Link href="/#products">Products</Nav.Link>
-          <Nav.Link href="/#about" className="d-block d-lg-none">
+          <Nav.Link href="/#products" className="d-none d-lg-block">
+            Products
+          </Nav.Link>
+
+          <Nav.Link href="/#products-list" className="d-block d-lg-none">
+            Products
+          </Nav.Link>
+          <Nav.Link href="/#about-row" className="d-block d-lg-none">
             About
           </Nav.Link>
         </Nav>
