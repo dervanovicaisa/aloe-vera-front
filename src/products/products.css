@@ -125,6 +125,7 @@
     width: unset !important;
   }
   #products {
-    width: 98%;
+    /* width: 98%; */
+    justify-content: center;
   }
 }
