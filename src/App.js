@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./header/Header";
 import Products from "./products/Products";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Main from "./Main";
 import Footer from "./footer/Footer";
 import Loader from "./assets/loader/Loader";
@@ -56,7 +56,7 @@ function App() {
         setProduct={setProduct}
         onProductChange={onProductChange}
       />
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/">
             <Route
@@ -89,7 +89,7 @@ function App() {
             ></Route>
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       <Footer />
       <Toaster position="top-center" reverseOrder={false} />
     </div>

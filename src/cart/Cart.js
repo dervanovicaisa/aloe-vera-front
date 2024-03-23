@@ -49,7 +49,7 @@ function Cart({ product, setProduct }) {
   //   localStorage.setItem("productItem", JSON.stringify(product));
   // }
   return (
-    <Container id="cart-box" style={{ height: "60vh" }}>
+    <Container id="cart-box">
       <Row className="pt-5">
         <Col className="text-center">
           <h3 className="popular-title text-dark">Shopping Cart</h3>
@@ -97,6 +97,8 @@ function Cart({ product, setProduct }) {
                       <Button
                         className="product-card-btn btn-light checkout mx-2"
                         href={el.url}
+                        target="_blank"
+                        rel="noreferrer"
                       >
                         <Wallet2 />
                       </Button>
@@ -151,6 +153,8 @@ function Cart({ product, setProduct }) {
                         <Button
                           className="product-card-btn btn-light checkout mx-2"
                           href={el.url}
+                          target="_blank"
+                          rel="noreferrer"
                         >
                           <Wallet2 />
                         </Button>
