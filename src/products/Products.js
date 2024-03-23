@@ -9,7 +9,7 @@ import {
   Row,
 } from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
-import { ArrowUp, Funnel, X } from "react-bootstrap-icons";
+import { ArrowUp, Funnel } from "react-bootstrap-icons";
 
 function Products({
   productCategories,

@@ -15,6 +15,7 @@ import "./cart.css";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { Archive, Inboxes, Trash } from "react-bootstrap-icons";
+import axios from "axios";
 function Cart({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   const [key, setKey] = useState("shoppingList");
@@ -60,7 +61,7 @@ function Cart({ product, setProduct }) {
   }
 
   function onHandleChange(e, idx) {
-    const { value, name } = e.target;
+    const { value } = e.target;
     product[idx].quantity = parseInt(value);
     const price = parseInt(product[idx].price.split(" ")[0]);
     const quantity = parseInt(value);
@@ -71,11 +72,26 @@ function Cart({ product, setProduct }) {
     localStorage.setItem("productItem", JSON.stringify(product));
   }
   function sendToEmail(e) {
-    setEmail("");
-    toast.success(
-      "E-mail is successfully sent. We will inform you about your status. Thank you for your patience and trust. ",
-      { duration: 5000 }
-    );
+    const data = {
+      recipient: email,
+      subject: "Ordering List",
+      body: JSON.stringify(sendToEmail),
+    };
+
+    axios
+      .post("/api/sendEmail", data)
+      .then((response) => {
+        toast.success(
+          "E-mail is successfully sent. We will inform you about your status. Thank you for your patience and trust. ",
+          { duration: 5000 }
+        );
+        setEmail("");
+        console.log("Email sent successfully");
+      })
+      .catch((error) => {
+        setEmail("");
+        console.error("Error sending email:", error);
+      });
   }
   function storeOrderList(e, product) {
     setKey("confirm");
@@ -172,10 +188,12 @@ function Cart({ product, setProduct }) {
                     </tr>
                   </thead>
                   <tbody className="text-center pt-5 overflow-y-auto">
-                    <td colSpan={5} className="pt-5">
-                      <Inboxes size={200} />
-                      <p>There is no product!</p>
-                    </td>
+                    <tr className="pt-5">
+                      <td colSpan={5} className="pt-5">
+                        <Inboxes size={200} />
+                        <p className="pt-3">There is no product!</p>
+                      </td>
+                    </tr>
                   </tbody>
                 </Table>
               )}
@@ -280,7 +298,6 @@ function Cart({ product, setProduct }) {
                     <FormGroup className="pb-3 pt-1">
                       <FormControl
                         type="email"
-                        defaultValue={""}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
