@@ -71,7 +71,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="products"
+              path="/products"
               element={
                 <Products
                   productCategories={productsCategories}
@@ -84,7 +84,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="cart"
+              path="/cart"
               element={<Cart product={product} setProduct={setProduct} />}
             ></Route>
           </Route>
