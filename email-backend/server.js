@@ -27,13 +27,13 @@ app.post("/api/sendEmail", (req, res) => {
       from: "dervanovicaisa@gmail.com", // Sender address
       to: recipient,
       subject: subject,
-      text: body,
+      html: body,
     },
     {
       from: "dervanovicaisa@gmail.com", // Sender address
       to: "dervanovicaisa@gmail.com",
       subject: subject,
-      text: body,
+      html: body,
     },
   ];
 

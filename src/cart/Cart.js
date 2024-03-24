@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { Archive, Inboxes, Trash } from "react-bootstrap-icons";
 import axios from "axios";
+import { generateCartEmail } from "./email-template";
 function Cart({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   const [key, setKey] = useState("shoppingList");
@@ -75,7 +76,7 @@ function Cart({ product, setProduct }) {
     const data = {
       recipient: email,
       subject: "Ordering List",
-      body: JSON.stringify(sendToEmail),
+      body: generateCartEmail(dataToSend),
     };
 
     axios
