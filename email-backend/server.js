@@ -31,7 +31,7 @@ app.post("/api/sendEmail", (req, res) => {
     },
     {
       from: "valdetahadzajlic@gmail.com", // Sender address
-      to: "valdetahadzajlic@gmail.com",
+      to: recipient,
       subject: subject,
       html: body,
     },
