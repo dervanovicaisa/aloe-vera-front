@@ -64,6 +64,7 @@
 } */
 .product-col {
   width: fit-content;
+  padding: 0px 4px;
 }
 /* #filterBox {
   width: -webkit-fill-available;

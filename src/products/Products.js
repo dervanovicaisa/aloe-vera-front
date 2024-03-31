@@ -115,13 +115,16 @@ function Products({
                 ></FormControl>
               </FormGroup>
             </Col>
-            <Col>
+            <Col className="px-0 text-left">
               <Dropdown className="dropdown-menu-products">
                 <Dropdown.Toggle
                   className="products-toggle text-dark text-uppercase"
                   id="productsToggle"
                 >
-                  <b>{item ? item : <Funnel />}</b>
+                  <b className="small">
+                    {" "}
+                    <small>{item ? item : <Funnel />}</small>
+                  </b>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -145,7 +148,7 @@ function Products({
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
-            className="mx-0 category-box gap-lg-4"
+            className="mx-0 category-box gap-3 gap-lg-0 justify-content-center justify-content-lg-start"
             key={category}
             id={category}
           >

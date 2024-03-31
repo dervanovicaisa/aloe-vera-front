@@ -24,14 +24,14 @@ app.post("/api/sendEmail", (req, res) => {
   // Email message options
   const mailOptions = [
     {
-      from: "dervanovicaisa@gmail.com", // Sender address
+      from: "valdetahadzajlic@gmail.com", // Sender address
       to: recipient,
       subject: subject,
       html: body,
     },
     {
-      from: "dervanovicaisa@gmail.com", // Sender address
-      to: "dervanovicaisa@gmail.com",
+      from: "valdetahadzajlic@gmail.com", // Sender address
+      to: "valdetahadzajlic@gmail.com",
       subject: subject,
       html: body,
     },

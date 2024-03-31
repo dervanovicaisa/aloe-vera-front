@@ -14,7 +14,14 @@ import {
 import "./cart.css";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import { Archive, Inboxes, Trash } from "react-bootstrap-icons";
+import {
+  Archive,
+  CaretLeftFill,
+  CaretRightFill,
+  Check2All,
+  Inboxes,
+  Trash,
+} from "react-bootstrap-icons";
 import axios from "axios";
 import { generateCartEmail } from "./email-template";
 function Cart({ product, setProduct }) {
@@ -101,7 +108,7 @@ function Cart({ product, setProduct }) {
   return (
     <Container id="cart-box">
       <Row className="pt-5">
-        <Col className="text-center">
+        <Col className="text-center pb-lg-5">
           <h3 className="popular-title text-dark">Shopping Cart</h3>
           <p className="popular-text text-dark m-auto mt-2">
             Shop now and experience the natural goodness of Aloe Vera in every
@@ -145,7 +152,7 @@ function Cart({ product, setProduct }) {
                           <FormGroup className="d-flex justify-content-center">
                             <FormControl
                               type="number"
-                              className="w-50"
+                              className="qty"
                               placeholder="qty"
                               min={1}
                               defaultValue={el.quantity}
@@ -188,9 +195,9 @@ function Cart({ product, setProduct }) {
                       <th className="text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="text-center pt-5 overflow-y-auto">
-                    <tr className="pt-5">
-                      <td colSpan={5} className="pt-5">
+                  <tbody className="text-center pt-5 overflow-y-auto border-bottom-0">
+                    <tr className="pt-5 border-bottom-0">
+                      <td colSpan={5} className="pt-5 border-bottom-0">
                         <Inboxes size={200} />
                         <p className="pt-3">There is no product!</p>
                       </td>
@@ -250,26 +257,34 @@ function Cart({ product, setProduct }) {
                   </div>
                 ))
               ) : (
-                <div className="pt-3 d-flex flex-column justify-content-center align-items-center gap-4">
+                <div className="pt-5 d-flex flex-column justify-content-center align-items-center gap-4">
                   <Inboxes size={100} />
                   <p>There is no product!</p>
                 </div>
               )}
             </div>
-            <Row className="justify-content-end pb-3 px-4">
-              <Col lg={2} className="text-end  px-0">
-                {" "}
-                <Button
-                  className="checkout"
-                  onClick={(e) => storeOrderList(e, product)}
-                >
-                  Confirm & Next
-                </Button>
-              </Col>
-            </Row>
+            {product.length > 0 && (
+              <Row className="justify-content-end pb-3 px-4">
+                <Col lg={2} className="text-end  px-0">
+                  {" "}
+                  <Button
+                    className="checkout"
+                    onClick={(e) => storeOrderList(e, product)}
+                  >
+                    <span className="d-flex justify-content-between">
+                      Confirm & Next <CaretRightFill className="mt-1" />
+                    </span>
+                  </Button>
+                </Col>
+              </Row>
+            )}
           </div>
         </Tab>
-        <Tab eventKey="confirm" title="Status of order">
+        <Tab
+          eventKey="confirm"
+          title="Status of order"
+          disabled={product.length === 0}
+        >
           <div className="cart">
             <Row className="justify-content-end pb-3 px-4 gap-4">
               <Col className="text-center pt-4">
@@ -278,7 +293,7 @@ function Cart({ product, setProduct }) {
               <Col lg={12} className="mx-0 px-0">
                 <Row className="flex-column align-items-center justify-content-center">
                   <Col lg={5} className="text-center">
-                    <Archive size={130} />
+                    <Archive size={130} color="#0a3622" />
                   </Col>
                   <Col lg={6} className="text-center pt-3">
                     <p>
@@ -317,19 +332,25 @@ function Cart({ product, setProduct }) {
                   </Col>
                 </Row>
               </Col>
+
               <Col lg={4} className="justify-content-end d-flex  px-0">
                 <Button
-                  className="checkout mx-2"
+                  className="checkout prev mx-2"
                   onClick={() => setKey("shoppingList")}
                 >
-                  Prev
+                  <span className="d-flex justify-content-between align-items-center">
+                    <CaretLeftFill />
+                    Previous
+                  </span>
                 </Button>
                 <Button
-                  className="checkout"
+                  className="checkout send"
                   disabled={email === ""}
                   onClick={(e) => sendToEmail(e)}
                 >
-                  Send
+                  <span className="d-flex justify-content-between align-items-center">
+                    Send <Check2All />
+                  </span>
                 </Button>
               </Col>
             </Row>
