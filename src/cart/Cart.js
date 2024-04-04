@@ -89,7 +89,10 @@ function Cart({ product, setProduct }) {
     };
 
     axios
-      .post("/api/sendEmail", data)
+      .post(
+        "https://aloe-vera-email-4977989203c2.herokuapp.com/api/sendEmail",
+        data
+      )
       .then((response) => {
         toast.success(
           "E-mail is successfully sent. We will inform you about your status. Thank you for your patience and trust. ",
