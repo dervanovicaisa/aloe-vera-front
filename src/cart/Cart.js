@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import "./cart.css";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Archive,
   CaretLeftFill,
@@ -29,6 +29,23 @@ function Cart({ product, setProduct }) {
   const [key, setKey] = useState("shoppingList");
   const [email, setEmail] = useState("");
   const [dataToSend, setDataToSend] = useState();
+
+  const caluculateSubTotal = useCallback(() => {
+    if (product.length > 0) {
+      // console.log({ product });
+      product.map((pr) => {
+        const price = parseInt(pr.price.split(" ")[0]);
+        const quantity = parseInt(pr.quantity);
+        const calc = price * quantity;
+        pr.totalPrice = String(calc) + " EUR";
+        return pr;
+      });
+      // console.log({ product });
+      setProduct([...product]);
+      localStorage.setItem("productItem", JSON.stringify(product));
+    }
+  }, [product, setProduct]);
+
   useEffect(() => {
     if (product.length === 0 && LSProducts !== null) {
       let parsedArray = JSON.parse(LSProducts);
@@ -45,27 +62,12 @@ function Cart({ product, setProduct }) {
       setProduct(parsedArray);
       caluculateSubTotal();
     }
-  }, [product.length, LSProducts, setProduct]);
+  }, [product.length, LSProducts, setProduct, caluculateSubTotal]);
   function removeItem(id) {
     const removedItems = product.filter((el, idx) => idx !== id);
     setProduct(removedItems);
     localStorage.setItem("productItem", JSON.stringify(removedItems));
     toast.success("Successfully removed item from cart.");
-  }
-  function caluculateSubTotal() {
-    if (product.length > 0) {
-      console.log({ product });
-      product.map((pr) => {
-        const price = parseInt(pr.price.split(" ")[0]);
-        const quantity = parseInt(pr.quantity);
-        const calc = price * quantity;
-        pr.totalPrice = String(calc) + " EUR";
-        return pr;
-      });
-      console.log({ product });
-      setProduct([...product]);
-      localStorage.setItem("productItem", JSON.stringify(product));
-    }
   }
 
   function onHandleChange(e, idx) {
