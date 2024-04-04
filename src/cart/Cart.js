@@ -45,7 +45,7 @@ function Cart({ product, setProduct }) {
       setProduct(parsedArray);
       caluculateSubTotal();
     }
-  }, [product.length, LSProducts, setProduct, caluculateSubTotal()]);
+  }, [product.length, LSProducts, setProduct]);
   function removeItem(id) {
     const removedItems = product.filter((el, idx) => idx !== id);
     setProduct(removedItems);
