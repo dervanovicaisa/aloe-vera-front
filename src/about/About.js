@@ -10,7 +10,10 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
     productOnChange(e);
   }
   return (
-    <div id="about" className="border-bottom d-flex flex-column">
+    <div
+      id="about"
+      className="border-bottom d-flex flex-column align-items-center"
+    >
       <Row
         id="about-row"
         className="px-lg-5 px-2 pt-5 pb-3 py-lg-5 m-0 gap-lg-3"

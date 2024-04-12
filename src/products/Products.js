@@ -148,7 +148,7 @@ function Products({
       {Object.keys(isFiltered ? filteredProducts : productCategories).map(
         (category) => (
           <Row
-            className="mx-0 category-box gap-3 gap-lg-0 justify-content-center justify-content-lg-start"
+            className="mx-0 category-box gap-3 gap-lg-0 justify-content-center"
             key={category}
             id={category}
           >

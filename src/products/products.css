@@ -79,7 +79,7 @@
     width: auto;
   }
   .on-scroll-box {
-    padding: 10px 0px !important;
+    padding: 10px 0px 10px 14px !important;
     width: 100% !important;
   }
   .w-90 {

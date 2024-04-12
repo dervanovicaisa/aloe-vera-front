@@ -88,9 +88,18 @@
     box-shadow: rgb(133 133 177) 6px 7px;
   }
   .popular-product-card .card {
-    box-shadow: #eed284da 6px 5px;
+    box-shadow: #eed284da 4px 3px;
   }
   .product-card .card-title {
+    font-size: 1rem;
+  }
+  .popular-title {
+    font-size: 1.5rem;
+  }
+  .popular-text {
+    font-size: small;
+  }
+  .card-title {
     font-size: 1rem;
   }
 }
@@ -129,6 +138,15 @@
     height: 319px;
   }
   .popular-product-card .card {
-    box-shadow: #eed284da 10px 10px;
+    box-shadow: #eed284da 4px 3px;
+  }
+  .popular-title {
+    font-size: 1.5rem;
+  }
+  .popular-text {
+    font-size: small;
+  }
+  .card-title {
+    font-size: 1rem;
   }
 }
