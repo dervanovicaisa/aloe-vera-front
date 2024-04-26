@@ -16,14 +16,10 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import {
   Archive,
-  CaretDown,
   CaretDownFill,
-  CaretDownSquare,
   CaretLeftFill,
   CaretRightFill,
-  CaretUp,
   CaretUpFill,
-  CaretUpSquare,
   Check2All,
   Inboxes,
   Trash,
