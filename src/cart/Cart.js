@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import "./cart.css";
 import toast from "react-hot-toast";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Archive,
   CaretLeftFill,
@@ -30,22 +30,21 @@ function Cart({ product, setProduct }) {
   const [email, setEmail] = useState("");
   const [dataToSend, setDataToSend] = useState();
 
-  const caluculateSubTotal = useCallback(() => {
-    if (product.length > 0) {
-      // console.log({ product });
-      product.map((pr) => {
-        const price = parseInt(pr.price.split(" ")[0]);
-        const quantity = parseInt(pr.quantity);
-        const calc = price * quantity;
-        pr.totalPrice = String(calc) + " EUR";
-        return pr;
-      });
-      // console.log({ product });
-      setProduct([...product]);
-      localStorage.setItem("productItem", JSON.stringify(product));
-    }
-  }, [product, setProduct]);
-
+  // const caluculateSubTotal = useCallback(() => {
+  //   if (product.length > 0) {
+  //     const updatedProduct = product.map((pr) => {
+  //       const price = parseInt(pr.price.split(" ")[0]);
+  //       const quantity = parseInt(pr.quantity);
+  //       const calc = price * quantity;
+  //       return {
+  //         ...pr,
+  //         totalPrice: String(calc) + " EUR",
+  //       };
+  //     });
+  //     return updatedProduct;
+  //   }
+  //   return [];
+  // }, [product]);
   useEffect(() => {
     if (product.length === 0 && LSProducts !== null) {
       let parsedArray = JSON.parse(LSProducts);
@@ -60,9 +59,9 @@ function Cart({ product, setProduct }) {
         }
       });
       setProduct(parsedArray);
-      caluculateSubTotal();
+      // caluculateSubTotal();
     }
-  }, [product.length, LSProducts, setProduct, caluculateSubTotal]);
+  }, [LSProducts, setProduct, product.length]);
   function removeItem(id) {
     const removedItems = product.filter((el, idx) => idx !== id);
     setProduct(removedItems);
@@ -71,14 +70,22 @@ function Cart({ product, setProduct }) {
   }
 
   function onHandleChange(e, idx) {
-    const { value } = e.target;
-    product[idx].quantity = parseInt(value);
-    const price = parseInt(product[idx].price.split(" ")[0]);
-    const quantity = parseInt(value);
-    console.log({ price, quantity });
-    const calc = price * parseInt(value);
-    product[idx].totalPrice = String(calc) + " EUR";
-    setProduct([...product]);
+    let { value } = e.target;
+    if (parseInt(value) === 0 || isNaN(parseInt(value))) {
+      e.target.value = 1;
+      product[idx].quantity = 1;
+      setProduct([...product]);
+      toast.error("Quantity of the product cannot be less than one.");
+    }
+    if (value >= 1) {
+      product[idx].quantity = parseInt(value);
+      const price = parseInt(product[idx].price.split(" ")[0]);
+      // const quantity = parseInt(value);
+      // console.log({ price, quantity });
+      const calc = price * parseInt(value);
+      product[idx].totalPrice = String(calc) + " EUR";
+      setProduct([...product]);
+    }
     localStorage.setItem("productItem", JSON.stringify(product));
   }
   function sendToEmail(e) {
@@ -230,7 +237,7 @@ function Cart({ product, setProduct }) {
                                 type="number"
                                 placeholder="qty"
                                 min={1}
-                                defaultValue={el.quantity}
+                                value={el.quantity}
                                 onChange={(e) => onHandleChange(e, idx)}
                               ></FormControl>
                             </FormGroup>
