@@ -92,6 +92,17 @@ function Products({
       setIsFiltered(false);
     }
   }
+  function removeUppercase(text) {
+    let result = "";
+    for (let char of text) {
+      if (char === char.toUpperCase()) {
+        result += " " + char;
+      } else {
+        result += char;
+      }
+    }
+    return result;
+  }
   return (
     <div id="products" className="px-2 px-md-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center justify-content-center">
@@ -123,7 +134,7 @@ function Products({
                 >
                   <b className="small">
                     {" "}
-                    <small>{item ? item : <Funnel />}</small>
+                    <small>{item ? removeUppercase(item) : <Funnel />}</small>
                   </b>
                 </Dropdown.Toggle>
 
@@ -135,7 +146,7 @@ function Products({
                       className="text-uppercase"
                       onClick={() => onClickSetCategory(category)}
                     >
-                      {category}
+                      {removeUppercase(category)}
                     </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>

@@ -100,6 +100,9 @@
   }
 }
 @media only screen and (max-width: 424px) {
+  .dropdown-item {
+    font-size: small;
+  }
   .product-card {
     width: 10rem !important;
   }

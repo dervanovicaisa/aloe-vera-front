@@ -262,9 +262,9 @@ function Cart({ product, setProduct }) {
                   </div>
                 ))
               ) : (
-                <div className="pt-5 d-flex flex-column justify-content-center align-items-center gap-4">
-                  <Inboxes size={100} />
-                  <p>There is no product!</p>
+                <div className="pt-5 d-flex flex-column justify-content-center align-items-center gap-lg-4 gap-2">
+                  <Inboxes size={100} className="inbox-icon" />
+                  <p className="text-no-products">There is no product!</p>
                 </div>
               )}
             </div>
@@ -290,24 +290,31 @@ function Cart({ product, setProduct }) {
           title="Status of order"
           disabled={product.length === 0}
         >
-          <div className="cart">
-            <Row className="justify-content-end pb-3 px-4 gap-4">
+          <div className="cart status-of-order">
+            <Row className="justify-content-end pb-3 px-4 gap-lg-4 gap-0">
               <Col className="text-center pt-4">
                 <h4>Info about ordering list</h4>
               </Col>
               <Col lg={12} className="mx-0 px-0">
                 <Row className="flex-column align-items-center justify-content-center">
                   <Col lg={5} className="text-center">
-                    <Archive size={130} color="#0a3622" />
+                    <Archive
+                      size={130}
+                      color="#0a3622"
+                      className="archive-icon"
+                    />
                   </Col>
-                  <Col lg={6} className="text-center pt-3">
+                  <Col
+                    lg={6}
+                    className="text-lg-center pt-lg-3 pt-0 text-justify"
+                  >
                     <p>
                       Your order list will be sent at{" "}
                       <a
                         className="text-dark"
                         href="mailto:valdetahadzajlic@gmail.com"
                       >
-                        valdetahadzajlic@gmail.com
+                        aloeveravh@gmail.com
                       </a>
                       .<br /> You will be informed about the status of your
                       order via email. <br />
@@ -316,7 +323,7 @@ function Cart({ product, setProduct }) {
                     </p>
                   </Col>
                   <Col lg={6}>
-                    <FormGroup className="pb-3 pt-1">
+                    <FormGroup className="pb-1 pb-lg-3 pt-1">
                       <FormControl
                         type="email"
                         value={email}
@@ -330,7 +337,7 @@ function Cart({ product, setProduct }) {
                         className="text-dark"
                         href="mailto:valdetahadzajlic@gmail.com"
                       >
-                        valdetahadzajlic@gmail.com
+                        aloeveravh@gmail.com
                       </a>{" "}
                       or through social media channels.
                     </small>
@@ -338,7 +345,10 @@ function Cart({ product, setProduct }) {
                 </Row>
               </Col>
 
-              <Col lg={4} className="justify-content-end d-flex  px-0">
+              <Col
+                lg={4}
+                className="justify-content-end d-flex pt-lg-0 pt-4 px-0"
+              >
                 <Button
                   className="checkout prev mx-2"
                   onClick={() => setKey("shoppingList")}

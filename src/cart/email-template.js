@@ -78,11 +78,11 @@ We appreciate your business and look forward to serving you again in the future.
                 <div style="font-style:normal">
                     <div>
                         Instagram:
-                        <a href="https://www.instagram.com/forever_living_products_vh" target="_blank" rel="noreferrer" style="text-decoration: none; color: #303b23;">@forever_living_products_vh</a>
+                        <a href="https://www.instagram.com/aloe_vera_vh" target="_blank" rel="noreferrer" style="text-decoration: none; color: #303b23;">@aloe_vera_vh</a>
                     </div>
                     <div>
                         Email:
-                        <a href="mailto:valdetahadzajlic@gmail.com" style="text-decoration: none; color: #303b23;">valdetahadzajlic@gmail.com</a>
+                        <a href="mailto:valdetahadzajlic@gmail.com" style="text-decoration: none; color: #303b23;">aloeveravh@gmail.com</a>
                     </div>
                 </div>
             </div>

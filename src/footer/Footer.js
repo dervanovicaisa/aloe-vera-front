@@ -19,11 +19,11 @@ const Footer = () => {
                 Instagram:
                 <a
                   className="mx-1"
-                  href="https://www.instagram.com/forever_living_products_vh"
+                  href="https://www.instagram.com/aloe_vera_vh"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  @forever_living_products_vh
+                  @aloe_vera_vh
                 </a>
               </span>
               <span>
@@ -32,7 +32,7 @@ const Footer = () => {
                   className="text-decoration-none"
                   href="mailto:valdetahadzajlic@gmail.com"
                 >
-                  valdetahadzajlic@gmail.com
+                  aloeveravh@gmail.com
                 </a>
               </span>
               {/* <span>Phone: 069549938</span> */}
