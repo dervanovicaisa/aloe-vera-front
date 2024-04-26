@@ -16,8 +16,14 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import {
   Archive,
+  CaretDown,
+  CaretDownFill,
+  CaretDownSquare,
   CaretLeftFill,
   CaretRightFill,
+  CaretUp,
+  CaretUpFill,
+  CaretUpSquare,
   Check2All,
   Inboxes,
   Trash,
@@ -71,22 +77,19 @@ function Cart({ product, setProduct }) {
 
   function onHandleChange(e, idx) {
     let { value } = e.target;
-    if (parseInt(value) === 0 || isNaN(parseInt(value))) {
-      e.target.value = 1;
-      product[idx].quantity = 1;
-      setProduct([...product]);
-      toast.error("Quantity of the product cannot be less than one.");
-    }
-    if (value >= 1) {
+    // console.log({ value });
+    if (value > 0 || value === "") {
       product[idx].quantity = parseInt(value);
-      const price = parseInt(product[idx].price.split(" ")[0]);
-      // const quantity = parseInt(value);
-      // console.log({ price, quantity });
-      const calc = price * parseInt(value);
-      product[idx].totalPrice = String(calc) + " EUR";
+      if (parseInt(value) >= 1 && product[idx].quantity >= 1) {
+        const price = parseInt(product[idx].price.split(" ")[0]);
+        // const quantity = parseInt(value);
+        // console.log({ price, quantity });
+        const calc = price * parseInt(value);
+        product[idx].totalPrice = String(calc) + " EUR";
+      }
       setProduct([...product]);
+      localStorage.setItem("productItem", JSON.stringify(product));
     }
-    localStorage.setItem("productItem", JSON.stringify(product));
   }
   function sendToEmail(e) {
     const data = {
@@ -114,6 +117,11 @@ function Cart({ product, setProduct }) {
       });
   }
   function storeOrderList(e, product) {
+    console.log({ product });
+    if (product.some((el) => el.quantity === 0 || isNaN(el.quantity))) {
+      toast.error("Quantity of the product cannot be less than one.");
+      return -1;
+    }
     setKey("confirm");
     setDataToSend(product);
   }
@@ -238,8 +246,33 @@ function Cart({ product, setProduct }) {
                                 placeholder="qty"
                                 min={1}
                                 value={el.quantity}
+                                className="px-1"
                                 onChange={(e) => onHandleChange(e, idx)}
                               ></FormControl>
+                              <div className="ml-1 custom-arrows">
+                                <div className="caret-up">
+                                  <CaretUpFill
+                                    size={5}
+                                    onClick={() =>
+                                      onHandleChange(
+                                        { target: { value: el.quantity + 1 } },
+                                        idx
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="caret-down">
+                                  <CaretDownFill
+                                    size={5}
+                                    onClick={() =>
+                                      onHandleChange(
+                                        { target: { value: el.quantity - 1 } },
+                                        idx
+                                      )
+                                    }
+                                  />
+                                </div>
+                              </div>
                             </FormGroup>
                           </div>
 

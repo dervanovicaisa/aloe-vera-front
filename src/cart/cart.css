@@ -1,3 +1,9 @@
+input[type="number"]:not([step="any"])::-webkit-inner-spin-button,
+input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
+  opacity: 1;
+  /* -webkit-appearance: ; */
+  margin: 0;
+}
 .cart {
   padding: 0px;
 }
@@ -195,5 +201,41 @@
   .form-control {
     height: 30px;
     font-size: small;
+  }
+  .custom-arrows {
+    background: var(--bs-light-border-subtle);
+    height: 16px;
+    position: relative;
+    left: -9px;
+    border-radius: 0px 5px 5px 0px;
+    top: 1px;
+    width: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-arrows .caret-up,
+  .caret-down {
+    height: 8px;
+    width: -webkit-fill-available;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom-arrows .caret-up:hover {
+    background-color: var(--bs-gray-100);
+    border-top-right-radius: 5px;
+    box-shadow: var(--bs-box-shadow-inset);
+  }
+  .custom-arrows .caret-down:hover {
+    background-color: var(--bs-gray-100);
+    border-bottom-right-radius: 5px;
+    box-shadow: var(--bs-box-shadow-inset);
+  }
+  .custom-arrows .caret-up svg,
+  .caret-down svg {
+    display: block;
   }
 }
