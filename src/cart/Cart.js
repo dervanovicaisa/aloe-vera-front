@@ -396,7 +396,7 @@ function Cart({ product, setProduct }) {
               </Col>
             </Row>
             <Row className="justify-content-center pt-lg-0 py-4">
-              <Col lg={5} className="text-end">
+              <Col lg={5} className="text-end me-4">
                 <Button
                   className="checkout prev mx-2 text-center"
                   onClick={() => setKey("shoppingList")}
