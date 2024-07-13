@@ -15,9 +15,7 @@ import "./cart.css";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import {
-  Archive,
   CaretDownFill,
-  CaretLeftFill,
   CaretRightFill,
   CaretUpFill,
   Check2All,
@@ -29,24 +27,14 @@ import { generateCartEmail } from "./email-template";
 function Cart({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   const [key, setKey] = useState("shoppingList");
-  const [email, setEmail] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    lastName: "",
+    address: "",
+    email: "",
+  });
   const [dataToSend, setDataToSend] = useState();
 
-  // const caluculateSubTotal = useCallback(() => {
-  //   if (product.length > 0) {
-  //     const updatedProduct = product.map((pr) => {
-  //       const price = parseInt(pr.price.split(" ")[0]);
-  //       const quantity = parseInt(pr.quantity);
-  //       const calc = price * quantity;
-  //       return {
-  //         ...pr,
-  //         totalPrice: String(calc) + " EUR",
-  //       };
-  //     });
-  //     return updatedProduct;
-  //   }
-  //   return [];
-  // }, [product]);
   useEffect(() => {
     if (product.length === 0 && LSProducts !== null) {
       let parsedArray = JSON.parse(LSProducts);
@@ -61,7 +49,6 @@ function Cart({ product, setProduct }) {
         }
       });
       setProduct(parsedArray);
-      // caluculateSubTotal();
     }
   }, [LSProducts, setProduct, product.length]);
   function removeItem(id) {
@@ -73,13 +60,10 @@ function Cart({ product, setProduct }) {
 
   function onHandleChange(e, idx) {
     let { value } = e.target;
-    // console.log({ value });
     if (value > 0 || value === "") {
       product[idx].quantity = parseInt(value);
       if (parseInt(value) >= 1 && product[idx].quantity >= 1) {
         const price = parseInt(product[idx].price.split(" ")[0]);
-        // const quantity = parseInt(value);
-        // console.log({ price, quantity });
         const calc = price * parseInt(value);
         product[idx].totalPrice = String(calc) + " EUR";
       }
@@ -89,7 +73,7 @@ function Cart({ product, setProduct }) {
   }
   function sendToEmail(e) {
     const data = {
-      recipient: email,
+      recipient: form.email,
       subject: "Ordering List",
       body: generateCartEmail(dataToSend),
     };
@@ -104,16 +88,15 @@ function Cart({ product, setProduct }) {
           "E-mail is successfully sent. We will inform you about your status. Thank you for your patience and trust. ",
           { duration: 5000 }
         );
-        setEmail("");
+        setForm({});
         console.log("Email sent successfully");
       })
       .catch((error) => {
-        setEmail("");
+        setForm({});
         console.error("Error sending email:", error);
       });
   }
   function storeOrderList(e, product) {
-    console.log({ product });
     if (product.some((el) => el.quantity === 0 || isNaN(el.quantity))) {
       toast.error("Quantity of the product cannot be less than one.");
       return -1;
@@ -121,6 +104,10 @@ function Cart({ product, setProduct }) {
     setKey("confirm");
     setDataToSend(product);
   }
+  const storeForm = (e) => {
+    let { value, name } = e.target;
+    setForm({ ...form, [name]: value });
+  };
   return (
     <Container id="cart-box">
       <Row className="pt-5">
@@ -326,25 +313,13 @@ function Cart({ product, setProduct }) {
           title="Status of order"
           disabled={product.length === 0}
         >
-          <div className="cart status-of-order">
-            <Row className="justify-content-end pb-3 px-4 gap-lg-4 gap-0">
-              <Col className="text-center pt-4">
-                <h4>Info about ordering list</h4>
-              </Col>
-              <Col lg={12} className="mx-0 px-0">
-                <Row className="flex-column align-items-center justify-content-center">
-                  <Col lg={5} className="text-center">
-                    <Archive
-                      size={130}
-                      color="#0a3622"
-                      className="archive-icon"
-                    />
-                  </Col>
-                  <Col
-                    lg={6}
-                    className="text-lg-center pt-lg-3 pt-0 text-justify"
-                  >
-                    <p>
+          <div className="cart status-of-order gap-3">
+            <Row className="justify-content-center px-4 py-5 gap-lg-4 gap-0">
+              <Col lg={5}>
+                <Row>
+                  <Col lg={12} className="text-center pt-4">
+                    <h4>Info about ordering list</h4>
+                    <p className="text-center pt-2">
                       Your order list will be sent at{" "}
                       <a
                         className="text-dark"
@@ -353,19 +328,58 @@ function Cart({ product, setProduct }) {
                         aloeveravh@gmail.com
                       </a>
                       .<br /> You will be informed about the status of your
-                      order via email. <br />
-                      Please enter <b> your email </b> address below.
-                      <br />
+                      order via email.
                     </p>
                   </Col>
-                  <Col lg={6}>
+                  <Col
+                    lg={12}
+                    className="text-lg-center pt-lg-3 pt-0 text-justify"
+                  >
+                    <p>
+                      {" "}
+                      Please fill out the <b> form</b>.
+                    </p>
+                  </Col>
+                  <Col lg={12}>
                     <FormGroup className="pb-1 pb-lg-3 pt-1">
-                      <FormControl
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
-                      />
+                      <Row className="gap-3">
+                        <Col className="pe-0">
+                          <FormControl
+                            type="text"
+                            name="name"
+                            value={form?.name}
+                            onChange={(e) => storeForm(e)}
+                            placeholder="Enter your name"
+                          />
+                        </Col>
+                        <Col className="ps-0">
+                          <FormControl
+                            type="text"
+                            name="lastName"
+                            value={form?.lastName}
+                            onChange={(e) => storeForm(e)}
+                            placeholder="Enter your last name"
+                          />
+                        </Col>
+                        <Col lg={12}>
+                          <FormControl
+                            type="email"
+                            name="email"
+                            value={form?.email}
+                            onChange={(e) => storeForm(e)}
+                            placeholder="Enter your email"
+                          />
+                        </Col>
+                        <Col lg={12}>
+                          <FormControl
+                            type="text"
+                            value={form?.address}
+                            name="address"
+                            onChange={(e) => storeForm(e)}
+                            placeholder="Enter your address"
+                          />
+                        </Col>
+                      </Row>
                     </FormGroup>
                     <small className="text-muted small">
                       For any questions, feel free to contact us at{" "}
@@ -380,23 +394,23 @@ function Cart({ product, setProduct }) {
                   </Col>
                 </Row>
               </Col>
-
-              <Col
-                lg={4}
-                className="justify-content-end d-flex pt-lg-0 pt-4 px-0"
-              >
+            </Row>
+            <Row className="justify-content-center pt-lg-0 py-4">
+              <Col lg={5} className="text-end">
                 <Button
-                  className="checkout prev mx-2"
+                  className="checkout prev mx-2 text-center"
                   onClick={() => setKey("shoppingList")}
                 >
-                  <span className="d-flex justify-content-between align-items-center">
-                    <CaretLeftFill />
-                    Previous
-                  </span>
+                  <span>Previous</span>
                 </Button>
                 <Button
                   className="checkout send"
-                  disabled={email === ""}
+                  disabled={
+                    form?.email === "" &&
+                    form?.name === "" &&
+                    form?.lastName === "" &&
+                    form?.address === ""
+                  }
                   onClick={(e) => sendToEmail(e)}
                 >
                   <span className="d-flex justify-content-between align-items-center">

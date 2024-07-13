@@ -9,7 +9,7 @@ import {
   Row,
 } from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
-import { ArrowUp, Funnel } from "react-bootstrap-icons";
+import { ArrowUp, Funnel, X } from "react-bootstrap-icons";
 
 function Products({
   productCategories,
@@ -92,6 +92,7 @@ function Products({
     } else {
       setIsFiltered(false);
     }
+    console.log({ isFiltered, filteredProducts });
   }
   function removeUppercase(text) {
     let result = "";
@@ -110,6 +111,10 @@ function Products({
     );
   };
   const flattenedProducts = flattenProducts(productCategories);
+  const handleRemoveItem = () => {
+    setItem("");
+    scrollUp();
+  };
   return (
     <div id="products" className="px-2 px-md-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center justify-content-center">
@@ -122,7 +127,7 @@ function Products({
           </p>
         </Col>
         <Col lg={12} className="pb-3 pt-5 px-0" id="filterBox">
-          <Row className="search">
+          <Row className="search align-items-center">
             <Col lg={3} className="col">
               <FormGroup>
                 <FormControl
@@ -134,9 +139,11 @@ function Products({
               </FormGroup>
             </Col>
             <Col className="px-0 text-left">
-              <Dropdown className="dropdown-menu-products">
+              <Dropdown
+                className={"dropdown-menu-products d-flex align-items-center"}
+              >
                 <Dropdown.Toggle
-                  className="products-toggle text-dark text-uppercase"
+                  className="products-toggle text-dark text-uppercase me-3"
                   id="productsToggle"
                 >
                   <b className="small">
@@ -144,7 +151,16 @@ function Products({
                     <small>{item ? removeUppercase(item) : <Funnel />}</small>
                   </b>
                 </Dropdown.Toggle>
-
+                {item && (
+                  <button
+                    type="button"
+                    id="removeBtn"
+                    class="btn btn-outline-danger btn-sm my-0"
+                    onClick={() => handleRemoveItem()}
+                  >
+                    <X className="text-dark" />
+                  </button>
+                )}
                 <Dropdown.Menu>
                   {Object.keys(productCategories).map((category) => (
                     <Dropdown.Item

@@ -1,7 +1,7 @@
 import "./about.css";
 import CradImage from "../assets/cover-img.jpg";
 import { Card, Col, Row } from "react-bootstrap";
-import { ArrowRightCircleFill, Dot, Flower2 } from "react-bootstrap-icons";
+import { ArrowRightCircleFill, Dot } from "react-bootstrap-icons";
 import ProductCard from "../assets/card/Card";
 import { useState } from "react";
 function About({ productsCategories, product, setProduct, productOnChange }) {
@@ -23,7 +23,7 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
             We create skincare using the nest ingredients from aloe vera plants.
           </h4>
         </Col>
-        <Col lg={4} className="col">
+        <Col lg={4} className="col d-none d-lg-block">
           <Card className=" box-shadow-img border-0">
             <Card.Img src={CradImage}></Card.Img>
           </Card>
@@ -37,32 +37,33 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
               </h4>
             </Col>
           </Row>
-          <Row className="d-none d-lg-flex gap-2">
-            <Col className="col flex-column gap-4">
-              <div className="circle-icon fit-content mb-3">
-                <Flower2 />
-              </div>
+          <Row className="d-none d-lg-flex">
+            <Col className="col">
               <p className="text-justify">
-                Experience the revitalizing touch of Aloe Vera with our curated
-                selection of skincare and wellness essentials. From gentle
-                cleansers to nourishing creams, our Aloe Vera skincare range
-                offers hydration and balance for radiant skin. Elevate your hair
-                care routine with Aloe Vera-infused shampoos and conditioners,
-                leaving your locks soft, lustrous, and beautifully moisturized.
+                Experience the revitalizing touch of Aloe Vera with our
+                thoughtfully curated selection of skincare and wellness
+                essentials. From gentle cleansers to deeply nourishing creams,
+                our comprehensive Aloe Vera skincare range ensures hydration and
+                restores balance for radiant, healthy-looking skin. Elevate your
+                hair care ritual with our luxurious Aloe Vera-infused shampoos
+                and conditioners, leaving your locks irresistibly soft,
+                lustrous, and beautifully moisturized. Discover the myriad
+                natural benefits of Aloe Vera and embark on a holistic journey
+                of self-care, embracing the daily beauty of healthier skin and
+                hair with every use.
               </p>
-            </Col>
-            <Col className="col flex-column gap-4">
-              <div className="circle-icon fit-content mb-3">
-                <Flower2 />
-              </div>
               <p className="text-justify">
                 Embrace the natural goodness of Aloe Vera with our collection of
                 soothing skincare and hair care products. Pamper your skin with
                 gentle cleansers and rejuvenating masks, while our Aloe
                 Vera-infused shampoos and conditioners provide hydration and
                 vitality to your hair. Discover the holistic benefits of Aloe
-                Vera supplements for digestive health and immune support, and
-                indulge in a renewed sense of well-being.
+                Vera supplements, promoting digestive health and supporting
+                immune function, and indulge in a renewed sense of well-being.
+                Whether you're starting your day with a refreshing skincare
+                routine or enhancing your overall wellness with Aloe Vera
+                supplements, embrace nature's gift for nourished skin, hair, and
+                vitality.
               </p>
             </Col>
           </Row>
@@ -75,14 +76,20 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
                   ? "col flex-column d-flex pt-lg-0 gap-2 gap-lg-4"
                   : "col flex-column gap-4 d-none"
               }
+              onClick={() => setClicked(2)}
             >
-              <div className="circle-icon fit-content">
-                <Flower2 size={10} />
-              </div>
               <p className="d-block d-lg-none custom-height text-style">
-                Discover Aloe Vera's revitalizing touch: Our skincare range,
-                from gentle cleansers to nourishing creams, offers hydration and
-                balance for radiant skin.
+                Experience the revitalizing touch of Aloe Vera with our
+                thoughtfully curated selection of skincare and wellness
+                essentials. From gentle cleansers to deeply nourishing creams,
+                our comprehensive Aloe Vera skincare range ensures hydration and
+                restores balance for radiant, healthy-looking skin. Elevate your
+                hair care ritual with our luxurious Aloe Vera-infused shampoos
+                and conditioners, leaving your locks irresistibly soft,
+                lustrous, and beautifully moisturized. Discover the myriad
+                natural benefits of Aloe Vera and embark on a holistic journey
+                of self-care, embracing the daily beauty of healthier skin and
+                hair with every use.
               </p>
             </Col>
             <Col
@@ -92,14 +99,20 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
                   ? "col flex-column d-flex pt-lg-0 gap-2 gap-lg-4"
                   : "col flex-column gap-4 d-none"
               }
+              onClick={() => setClicked(1)}
             >
-              <div className="circle-icon fit-content">
-                <Flower2 size={10} />
-              </div>
               <p className="d-block d-lg-none  custom-height text-style">
-                Experience the magic of Aloe Vera: Elevate your skincare and
-                haircare routine with our nourishing and revitalizing products
-                for natural beauty.
+                Embrace the natural goodness of Aloe Vera with our collection of
+                soothing skincare and hair care products. Pamper your skin with
+                gentle cleansers and rejuvenating masks, while our Aloe
+                Vera-infused shampoos and conditioners provide hydration and
+                vitality to your hair. Discover the holistic benefits of Aloe
+                Vera supplements, promoting digestive health and supporting
+                immune function, and indulge in a renewed sense of well-being.
+                Whether you're starting your day with a refreshing skincare
+                routine or enhancing your overall wellness with Aloe Vera
+                supplements, embrace nature's gift for nourished skin, hair, and
+                vitality.
               </p>
             </Col>
             <div className="dots">
@@ -126,9 +139,9 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
             globally.
           </p>
         </Col>
-        <Col lg={12} className="pb-5 pt-3 py-lg-5 px-2 px-lg-5 box-card">
+        <Col lg={10} className="pb-5 pt-3 py-lg-5 px-2 px-lg-5 box-card m-auto">
           <Row className="mx-0 justify-content-center gap-3">
-            {productsCategories["foreverFit"].slice(0, 3).map((pr, idx) => {
+            {productsCategories["foreverFit"].slice(0, 6).map((pr, idx) => {
               return (
                 <Col lg={3} key={idx} className="popular-product-card">
                   <ProductCard

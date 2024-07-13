@@ -12,7 +12,7 @@
   border: 1px solid var(--main-light-purple-transparent);
 }
 .shopping-cart:hover {
-  background-color: var(--main-light-purple-transparent);
+  opacity: 0.8;
   border: 1px solid var(--main-light-purple);
 }
 .aloe-vera-links a {
@@ -28,7 +28,7 @@
 }
 .number-of-items {
   position: absolute;
-  top: 20px;
+  top: 28px;
   margin-left: 17px;
   font-size: 8px;
   font-weight: 600;
@@ -39,9 +39,19 @@
 }
 @media only screen and (max-width: 600px) {
   .logo-img {
-    width: 35px;
+    width: 50px;
   }
   .number-of-items {
-    top: 6px;
+    top: 16px;
+    font-size: 7px;
+  }
+  .aloe-vera-links.navbar-nav {
+    font-size: small;
+  }
+  .shopping-cart {
+    padding: 10px;
+  }
+  .shopping-cart svg {
+    font-size: small;
   }
 }

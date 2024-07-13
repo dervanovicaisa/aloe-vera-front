@@ -26,17 +26,10 @@ function Header({ product, setProduct, onProductChange }) {
         </Navbar.Brand>
         <Nav className="aloe-vera-links">
           <Nav.Link href="/#home">Home</Nav.Link>
-          <Nav.Link href="/#about" className="d-none d-lg-block">
-            About
-          </Nav.Link>
           <Nav.Link href="/products" className="d-none d-lg-block">
             Products
           </Nav.Link>
-
-          <Nav.Link href="/products" className="d-block d-lg-none">
-            Products
-          </Nav.Link>
-          <Nav.Link href="/#about-row" className="d-block d-lg-none">
+          <Nav.Link href="/#about-row" className="">
             About
           </Nav.Link>
         </Nav>

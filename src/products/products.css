@@ -80,6 +80,13 @@
 #productsToggle b.small {
   font-size: medium;
 }
+#removeBtn {
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
 @media (max-width: 700px) and (min-width: 425px) {
   .col-search {
     width: auto;

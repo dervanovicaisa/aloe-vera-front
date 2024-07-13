@@ -145,7 +145,7 @@
     font-size: 1.5rem;
   }
   .popular-text {
-    font-size: small;
+    font-size: smaller;
   }
   .card-title {
     font-size: 1rem;
@@ -155,5 +155,11 @@
   }
   .product-card-body {
     height: unset;
+  }
+  .see-all {
+    font-size: medium;
+  }
+  .see-all svg {
+    font-size: unset;
   }
 }

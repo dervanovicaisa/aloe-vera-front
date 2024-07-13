@@ -2,7 +2,7 @@
   background: var(--main-green-ligth);
 }
 .left-text {
-  padding-left: 55px;
+  /* padding-left: 55px; */
   display: flex;
   align-items: center;
 }
@@ -13,7 +13,7 @@
   font-size: 2.5rem;
 }
 .subtext {
-  width: 311px;
+  font-size: medium;
 }
 .image {
   width: -webkit-fill-available;
