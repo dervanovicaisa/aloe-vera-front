@@ -26,12 +26,8 @@ function Header({ product, setProduct, onProductChange }) {
         </Navbar.Brand>
         <Nav className="aloe-vera-links">
           <Nav.Link href="/#home">Home</Nav.Link>
-          <Nav.Link href="/products" className="d-none d-lg-block">
-            Products
-          </Nav.Link>
-          <Nav.Link href="/#about-row" className="">
-            About
-          </Nav.Link>
+          <Nav.Link href="/products">Products</Nav.Link>
+          <Nav.Link href="/#about-row">About</Nav.Link>
         </Nav>
         <a className="shopping-cart text-decoration-none text-dark" href="cart">
           {product.length > 0 ? (
