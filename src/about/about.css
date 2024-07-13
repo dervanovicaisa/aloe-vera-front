@@ -138,7 +138,8 @@
     height: 319px;
   }
   .popular-product-card .card {
-    box-shadow: #eed284da 4px 3px;
+    box-shadow: unset;
+    border: 1px solid var(--bs-border-color);
   }
   .popular-title {
     font-size: 1.5rem;
@@ -148,5 +149,11 @@
   }
   .card-title {
     font-size: 1rem;
+  }
+  .popular-product-card .card:hover {
+    box-shadow: unset;
+  }
+  .product-card-body {
+    height: unset;
   }
 }

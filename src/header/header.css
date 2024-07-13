@@ -4,8 +4,8 @@
 .shopping-cart {
   cursor: pointer;
   background-color: var(--main-light-purple);
-  padding: 10px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 31px;
   display: flex;
   align-items: center;
   justify-content: center;

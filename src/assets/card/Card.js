@@ -19,7 +19,11 @@ function ProductCard({
   }
   return (
     <Card className="product-card">
-      <Card.Img variant="top" src={src} className="product-card-img" />
+      <div className="product-card-img-container">
+        <div className="product-card-img-body">
+          <Card.Img variant="top" src={src} className="product-card-img" />
+        </div>
+      </div>
       <Card.Body className="product-card-body">
         <Card.Title>{title}</Card.Title>
         <div className="d-flex align-items-center justify-content-between">

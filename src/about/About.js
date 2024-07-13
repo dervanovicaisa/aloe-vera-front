@@ -18,7 +18,7 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
         id="about-row"
         className="px-lg-5 px-2 pt-5 pb-3 py-lg-5 m-0 gap-lg-3"
       >
-        <Col lg={12} className="d-flex d-lg-none pb-4 pb-lg-0">
+        <Col lg={12} className="d-flex d-lg-none pb-4 pb-lg-0 text-center">
           <h4>
             We create skincare using the nest ingredients from aloe vera plants.
           </h4>
@@ -28,21 +28,21 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
             <Card.Img src={CradImage}></Card.Img>
           </Card>
         </Col>
-        <Col className="col d-flex flex-column gap-2 gap-lg-5 justify-content-center">
+        <Col className="col d-flex flex-column gap-2 gap-lg-5 px-lg-4  justify-content-center">
           <Row className="d-none d-lg-flex">
             <Col lg={9}>
-              <h4>
+              <h4 className="fs-2">
                 We create skincare using the nest ingredients from aloe vera
                 plants.
               </h4>
             </Col>
           </Row>
-          <Row className="d-none d-lg-flex gap-2 gap-lg-5">
-            <Col lg={5} className="col flex-column gap-4">
+          <Row className="d-none d-lg-flex gap-2">
+            <Col className="col flex-column gap-4">
               <div className="circle-icon fit-content mb-3">
                 <Flower2 />
               </div>
-              <p>
+              <p className="text-justify">
                 Experience the revitalizing touch of Aloe Vera with our curated
                 selection of skincare and wellness essentials. From gentle
                 cleansers to nourishing creams, our Aloe Vera skincare range
@@ -51,11 +51,11 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
                 leaving your locks soft, lustrous, and beautifully moisturized.
               </p>
             </Col>
-            <Col lg={5} className="col flex-column gap-4">
+            <Col className="col flex-column gap-4">
               <div className="circle-icon fit-content mb-3">
                 <Flower2 />
               </div>
-              <p>
+              <p className="text-justify">
                 Embrace the natural goodness of Aloe Vera with our collection of
                 soothing skincare and hair care products. Pamper your skin with
                 gentle cleansers and rejuvenating masks, while our Aloe
@@ -155,7 +155,7 @@ function About({ productsCategories, product, setProduct, productOnChange }) {
       {/* mobile version */}
       <Row
         id="products-list"
-        className="d-flex d-lg-none m-0 pb-5 pt-3 py-lg-5 gap-3 justify-content-center flex-column flower-bg-image"
+        className="d-flex d-lg-none m-0 pb-5 pt-3 py-lg-5  gap-3 justify-content-center flex-column flower-bg-image"
       >
         <Col lg={12} className="popular-box pt-3">
           <h3 className="popular-title">Popular</h3>

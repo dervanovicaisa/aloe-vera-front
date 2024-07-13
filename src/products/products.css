@@ -29,6 +29,9 @@
 .popular-text.text-dark {
   color: black !important;
 }
+.product-card-body {
+  height: 120px;
+}
 /* .product-col {
   width: 23% !important;
 } */
@@ -98,6 +101,9 @@
   #products {
     width: 98%;
   }
+  .product-card-body {
+    height: auto;
+  }
 }
 @media only screen and (max-width: 424px) {
   .dropdown-item {
@@ -132,5 +138,8 @@
   #products {
     width: 100%;
     justify-content: center;
+  }
+  .product-card-body {
+    height: 120px;
   }
 }

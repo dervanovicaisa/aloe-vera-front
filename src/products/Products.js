@@ -22,6 +22,7 @@ function Products({
   const [item, setItem] = useState("");
   const [filteredProducts, setFileteredProducts] = useState({});
   const [isFiltered, setIsFiltered] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => {
@@ -103,6 +104,12 @@ function Products({
     }
     return result;
   }
+  const flattenProducts = (productCategories) => {
+    return Object.keys(productCategories).flatMap((category) =>
+      productCategories[category].map((product) => ({ ...product, category }))
+    );
+  };
+  const flattenedProducts = flattenProducts(productCategories);
   return (
     <div id="products" className="px-2 px-md-5 py-5 d-flex flex-column gap-4">
       <Row className="mx-0 px-2 align-items-center justify-content-center">
@@ -156,29 +163,23 @@ function Products({
         </Col>
       </Row>
       {/* <Row className="py-3" id="filterBox"></Row> */}
-      {Object.keys(isFiltered ? filteredProducts : productCategories).map(
-        (category) => (
-          <Row
-            className="mx-0 category-box gap-3 gap-lg-0 justify-content-center"
-            key={category}
-            id={category}
-          >
-            {productCategories[category].map((pr, idx) => (
-              <div className="product-col" key={idx}>
-                <ProductCard
-                  src={pr.image_url}
-                  title={pr.name}
-                  description={pr.price}
-                  url={pr.url}
-                  product={product}
-                  setProduct={setProduct}
-                  setProductsOnChange={setProductsOnChange}
-                />
-              </div>
-            ))}
-          </Row>
-        )
-      )}
+      {/* {flattenedProducts.map((prod) => ( */}
+      <Row className="mx-0 category-box gap-3 gap-lg-0 justify-content-center">
+        {flattenedProducts.map((pr, idx) => (
+          <div className="product-col" key={idx} id={pr.category}>
+            <ProductCard
+              src={pr.image_url}
+              title={pr.name}
+              description={pr.price}
+              url={pr.url}
+              product={product}
+              setProduct={setProduct}
+              setProductsOnChange={setProductsOnChange}
+            />
+          </div>
+        ))}
+      </Row>
+      {/* ))} */}
       <div
         id="scrollUp"
         className="scroll-up-btn invisible"
