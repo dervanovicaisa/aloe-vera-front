@@ -3,7 +3,7 @@
 }
 .shopping-cart {
   cursor: pointer;
-  background-color: var(--main-light-purple);
+  background-color: var(--main-green-ligth);
   padding: 13px;
   border-radius: 25px;
   display: flex;
