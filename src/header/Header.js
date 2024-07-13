@@ -19,7 +19,7 @@ function Header({ product, setProduct, onProductChange }) {
         <Navbar.Brand href="/#home">
           <Image
             src={Logo}
-            width={60}
+            width={75}
             className="m-auto logo-img"
             alt="Aloe vera"
           />
