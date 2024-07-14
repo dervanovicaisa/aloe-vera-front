@@ -13,22 +13,44 @@ import { ArrowUp, Funnel, X } from "react-bootstrap-icons";
 
 function Products({
   productCategories,
-  setProductCategories,
   isData,
   product,
   setProduct,
   onProductChange,
 }) {
   const [item, setItem] = useState("");
-  const [filteredProducts, setFileteredProducts] = useState({});
-  const [isFiltered, setIsFiltered] = useState(false);
-
+  const [flattenedProducts, setFlattenedProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(flattenedProducts);
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
+    function changeProduct() {
+      const flattenProducts = (productCategories) => {
+        return Object.keys(productCategories).flatMap((category) =>
+          productCategories[category].map((product) => ({
+            ...product,
+            category,
+          }))
+        );
+      };
+      const flattenedProducts = flattenProducts(productCategories);
+      setFlattenedProducts(flattenedProducts);
+      setFilteredProducts(flattenedProducts);
+    }
+
+    changeProduct();
+
     window.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [productCategories]);
+
+  useEffect(() => {
+    const filtered = flattenedProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [searchQuery, flattenedProducts]);
 
   if (!isData) {
     return "Loading...";
@@ -40,7 +62,6 @@ function Products({
     const id = document.getElementById("filterBox");
     const scrollUp = document.getElementById("scrollUp");
     const footer = document.getElementById("footer");
-    // console.log({ scrollY: window.scrollY });
     if (id !== null && scrollUp !== null) {
       if (window.scrollY > 200) {
         id.classList.add("on-scroll-box");
@@ -50,10 +71,6 @@ function Products({
         scrollUp.classList.add("invisible");
       }
       if (footer !== null) {
-        console.log({
-          scrollY: window.scrollY,
-          height: document.documentElement.scrollHeight - footer.offsetHeight,
-        });
         if (
           window.scrollY >=
           document.documentElement.scrollHeight - footer.offsetHeight - 1000
@@ -73,26 +90,7 @@ function Products({
     onProductChange(e);
   }
   function onSearch(e) {
-    const { value } = e.target;
-    const filteredProduct = Object.keys(productCategories).reduce(
-      (acc, cat) => {
-        const filteredProducts = productCategories[cat].filter((el2) =>
-          el2.name.toLowerCase().includes(value.toLowerCase())
-        );
-        if (filteredProducts.length > 0) {
-          acc[cat] = filteredProducts;
-        }
-        return acc;
-      },
-      {}
-    );
-    if (Object.keys(filteredProduct).length > 0) {
-      setFileteredProducts({ ...filteredProduct });
-      setIsFiltered(true);
-    } else {
-      setIsFiltered(false);
-    }
-    console.log({ isFiltered, filteredProducts });
+    setSearchQuery(e.target.value);
   }
   function removeUppercase(text) {
     let result = "";
@@ -105,12 +103,7 @@ function Products({
     }
     return result;
   }
-  const flattenProducts = (productCategories) => {
-    return Object.keys(productCategories).flatMap((category) =>
-      productCategories[category].map((product) => ({ ...product, category }))
-    );
-  };
-  const flattenedProducts = flattenProducts(productCategories);
+
   const handleRemoveItem = () => {
     setItem("");
     scrollUp();
@@ -127,39 +120,50 @@ function Products({
           </p>
         </Col>
         <Col lg={12} className="pb-3 pt-5 px-0" id="filterBox">
-          <Row className="search align-items-center">
+          <Row
+            className={
+              item
+                ? "search align-items-center pe-3"
+                : "search align-items-center"
+            }
+          >
             <Col lg={3} className="col">
               <FormGroup>
                 <FormControl
                   type="text"
                   className="search"
                   placeholder="Search..."
-                  onChange={(e) => onSearch(e)}
+                  value={searchQuery}
+                  onChange={onSearch}
                 ></FormControl>
               </FormGroup>
             </Col>
-            <Col className="px-0 text-left">
+            <Col
+              lg={6}
+              sm={item ? 12 : 6}
+              className={
+                item ? "text-left pt-lg-0 pt-2 ps-lg-0" : "px-0 text-left"
+              }
+            >
               <Dropdown
                 className={"dropdown-menu-products d-flex align-items-center"}
               >
                 <Dropdown.Toggle
-                  className="products-toggle text-dark text-uppercase me-3"
+                  className="products-toggle text-dark text-lowercase"
                   id="productsToggle"
                 >
-                  <b className="small">
-                    {" "}
-                    <small>{item ? removeUppercase(item) : <Funnel />}</small>
-                  </b>
+                  {item ? (
+                    <span>{removeUppercase(item)}</span>
+                  ) : (
+                    <Funnel className="filter-icon" />
+                  )}
                 </Dropdown.Toggle>
                 {item && (
-                  <button
-                    type="button"
+                  <X
                     id="removeBtn"
-                    class="btn btn-outline-danger btn-sm my-0"
+                    className="text-dark undo-icon ms-2 cursor-pointer"
                     onClick={() => handleRemoveItem()}
-                  >
-                    <X className="text-dark" />
-                  </button>
+                  />
                 )}
                 <Dropdown.Menu>
                   {Object.keys(productCategories).map((category) => (
@@ -178,10 +182,8 @@ function Products({
           </Row>
         </Col>
       </Row>
-      {/* <Row className="py-3" id="filterBox"></Row> */}
-      {/* {flattenedProducts.map((prod) => ( */}
       <Row className="mx-0 category-box gap-3 gap-lg-0 justify-content-center">
-        {flattenedProducts.map((pr, idx) => (
+        {filteredProducts.map((pr, idx) => (
           <div className="product-col" key={idx} id={pr.category}>
             <ProductCard
               src={pr.image_url}
@@ -195,7 +197,6 @@ function Products({
           </div>
         ))}
       </Row>
-      {/* ))} */}
       <div
         id="scrollUp"
         className="scroll-up-btn invisible"

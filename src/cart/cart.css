@@ -1,28 +1,21 @@
-input[type="number"]:not([step="any"])::-webkit-inner-spin-button,
+/* input[type="number"]:not([step="any"])::-webkit-inner-spin-button,
 input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
   opacity: 1;
-  /* -webkit-appearance: ; */
   margin: 0;
 }
 .cart {
   padding: 0px;
 }
 .res-table {
-  /* box-shadow: var(--bs-box-shadow-lg); */
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   padding: 0px 0px 70px 0px;
 }
-/* .cart table tr:last-child {
-  border-bottom: white !important;
-} */
 
 .cart table {
   overflow: hidden;
   background-color: transparent;
-  /* border-radius: 5px; */
-  /* width: 1096px; */
 }
 .cart table th:first-child {
   border-left: unset;
@@ -47,7 +40,6 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
   padding: 4px 8px;
   background-color: rgba(204, 102, 102, 0.11);
   color: #2b2a2a;
-  /* font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium"; */
   font-size: 12px;
   border-radius: 3px;
 }
@@ -85,15 +77,11 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
   border: 1px solid var(--bs-gray-200);
   border-radius: 0px 0px 10px 10px;
   margin-bottom: 95px;
-  /* box-shadow: var(--bs-box-shadow-lg); */
   background: white;
 }
 .nav-tabs .nav-link.active {
   font-size: medium;
   font-weight: 500;
-  /* background: #f3f3f300; */
-  /* border-bottom-color: #f3f3f3; */
-  /* box-shadow: var(--bs-box-shadow-inset); */
   border-radius: 13px 8px 0px 0px;
 }
 .nav-tabs .nav-link,
@@ -112,10 +100,8 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
 #controlled-tab-tabpane-confirm .cart h4 {
   color: #0a3622 !important;
 }
-/* Make more adjustments for phone */
 @media (max-width: 700px) and (min-width: 425px) {
   .card {
-    /* padding: 20px 10px !important; */
     border-radius: unset !important;
     border-top: unset !important;
   }
@@ -123,7 +109,6 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
     max-width: 100%;
     vertical-align: top;
     position: relative;
-    /* border-radius: 27px; */
     filter: brightness(0.823) contrast(1.4);
     border: 20px solid white;
   }
@@ -164,12 +149,10 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
     max-width: 100%;
     vertical-align: top;
     position: relative;
-    /* border-radius: 27px; */
     filter: brightness(0.823) contrast(1.4);
     border: 10px solid white;
   }
   .card {
-    /* padding: 20px 10px !important; */
     border-radius: unset !important;
     border-top: unset !important;
   }
@@ -238,4 +221,4 @@ input[type="number"]:not([step="any"])::-webkit-outer-spin-button {
   .caret-down svg {
     display: block;
   }
-}
+} */

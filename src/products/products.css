@@ -1,6 +1,3 @@
-/* #products {
-  background: linear-gradient(to right, #7ebea5, #35654d);
-} */
 .btn-purple {
   background-color: var(--main-light-purple) !important;
   height: max-content;
@@ -8,12 +5,10 @@
   border-radius: 21px;
   width: fit-content;
   box-shadow: var(--bs-box-shadow-sm);
-  /* border: 1px solid var(--main-light-purple-transparent); */
 }
 .btn-purple:hover,
 .btn-purple.show {
   background-color: var(--main-light-purple-transparent) !important;
-  /* border: 1px solid var(--main-light-purple); */
 }
 .dropdown-menu.show {
   height: 156px;
@@ -32,9 +27,6 @@
 .product-card-body {
   height: 120px;
 }
-/* .product-col {
-  width: 23% !important;
-} */
 .on-scroll-box {
   position: fixed;
   z-index: 4;
@@ -46,11 +38,6 @@
   padding: 7px 78px !important;
   border-bottom: 1px solid var(--bs-border-color) !important;
 }
-/* .toggle-scroll {
-  background: aliceblue;
-  padding: 1px 12px;
-  border-radius: 21px;
-} */
 .scroll-up-btn {
   position: fixed;
   right: 40px;
@@ -62,17 +49,10 @@
   width: 44px !important;
   height: 42px !important;
 }
-/* #products .row > * {
-  width: unset !important;
-} */
 .product-col {
   width: fit-content;
   padding: 0px 4px;
 }
-/* #filterBox {
-  width: -webkit-fill-available;
-  padding: 80px;
-} */
 #products {
   width: 95%;
   margin: auto;
@@ -80,12 +60,17 @@
 #productsToggle b.small {
   font-size: medium;
 }
-#removeBtn {
+.dropdown-menu-products {
+  color: var(--bs-secondary-text-emphasis);
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px;
+  padding: 6px 16px;
+  font-size: medium;
+  background-color: var(--bs-gray-100);
+  width: min-content;
+  height: auto;
+}
+.filter-icon {
+  font-size: small;
 }
 @media (max-width: 700px) and (min-width: 425px) {
   .col-search {
@@ -104,10 +89,6 @@
   .w-lg-50 {
     width: unset !important;
   }
-  /* .search {
-    width: unset;
-    margin: unset;
-  } */
   #products {
     width: 98%;
   }
@@ -120,7 +101,7 @@
 }
 @media only screen and (max-width: 424px) {
   .dropdown-item {
-    font-size: small;
+    font-size: x-small;
   }
   .product-card {
     width: 10rem !important;
@@ -157,5 +138,31 @@
   }
   #productsToggle b.small {
     font-size: smaller;
+  }
+  #productsToggle {
+    font-size: small;
+  }
+  .dropdown-menu-products {
+    height: auto;
+    padding: 4px 9px;
+    font-size: x-small;
+  }
+  .form-control {
+    height: 28px;
+    font-size: small;
+  }
+  .undo-icon {
+    font-size: small;
+  }
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .col-sm-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .filter-icon {
+    font-size: x-small;
   }
 }

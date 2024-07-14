@@ -189,3 +189,6 @@ code {
 .VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
   visibility: hidden !important;
 }
+.cursor-pointer {
+  cursor: pointer !important;
+}
