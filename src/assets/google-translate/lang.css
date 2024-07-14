@@ -1,0 +1,14 @@
+.language-switcher {
+  border: 1px solid var(--bs-border-color);
+}
+
+.language-select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+}
+.language-select:hover {
+  background-color: var(--bs-border-color);
+}

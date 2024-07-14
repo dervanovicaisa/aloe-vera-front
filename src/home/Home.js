@@ -25,7 +25,11 @@ function Home() {
           </div>
         </Col>
         <Col lg={7} className="px-0 right-text d-none d-lg-block">
-          <Image src={AloeVeraImage} className="image img-responsive" />
+          <Image
+            src={AloeVeraImage}
+            loading="lazy"
+            className="image img-responsive"
+          />
         </Col>
       </Row>
       <div

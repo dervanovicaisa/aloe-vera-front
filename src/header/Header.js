@@ -1,9 +1,10 @@
 import { Nav, Navbar, Image } from "react-bootstrap";
 import "./header.css";
 import Logo from "../assets/aloe-vera-logo.png";
-import { Basket2 } from "react-bootstrap-icons";
+// import { Basket2 } from "react-bootstrap-icons";
 import { useEffect } from "react";
-function Header({ product, setProduct, onProductChange }) {
+import LanguageSwitcher from "../assets/google-translate/language-switcher";
+function Header({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   useEffect(() => {
     if (product.length === 0 && LSProducts !== null) {
@@ -26,17 +27,12 @@ function Header({ product, setProduct, onProductChange }) {
         </Navbar.Brand>
         <Nav className="aloe-vera-links">
           <Nav.Link href="/#home">Home</Nav.Link>
-          <Nav.Link href="/products">Products</Nav.Link>
           <Nav.Link href="/#about-row">About</Nav.Link>
+          <Nav.Link href="/products">Products</Nav.Link>
+          {/* <Nav.Item className="d-flex align-items-center">
+            <LanguageSwitcher />
+          </Nav.Item> */}
         </Nav>
-        <a className="shopping-cart text-decoration-none text-dark" href="cart">
-          {product.length > 0 ? (
-            <span className="number-of-items">{product.length}</span>
-          ) : (
-            ""
-          )}
-          <Basket2 />
-        </a>
       </div>
     </Navbar>
   );
