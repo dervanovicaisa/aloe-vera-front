@@ -4,7 +4,7 @@ import "./card.css";
 
 function ProductCard({ src, title, description, url }) {
   return (
-    <Row className="justify-content-center">
+    <Row className="justify-content-center mx-2 py-3">
       <Col xxl={12} xl={12} lg={12} className="card px-0">
         <Row>
           <Col xxl={12} xl={12} lg={12}>

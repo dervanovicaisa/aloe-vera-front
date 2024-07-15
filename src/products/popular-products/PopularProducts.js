@@ -48,8 +48,8 @@ function PopularProducts({
                 xl={3}
                 lg={4}
                 md={5}
-                sm={5}
-                xs={5}
+                sm={10}
+                xs={10}
                 className="popular-product-card mx-xxl-0 mx-xl-0 mx-lg-0 mx-md-0 mx-sm-3 mx-xs-3"
               >
                 <ProductCard

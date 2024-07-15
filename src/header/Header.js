@@ -1,4 +1,4 @@
-import { Nav, Navbar, Image, Col, Row } from "react-bootstrap";
+import { Nav, Navbar, Image } from "react-bootstrap";
 import "./header.css";
 import Logo from "../assets/aloe-vera-logo.png";
 import { useEffect } from "react";
@@ -13,33 +13,30 @@ function Header({ product, setProduct }) {
       }
     }
   }, [product.length, LSProducts, setProduct]);
+
   return (
-    <div>
-      <Navbar className="border-bottom d-block">
-        <Row className="align-items-center justify-content-between px-3 w-100">
-          <Col xxl={4} xl={4} lg={4} md={3} sm={2} xs={2}>
-            <Navbar.Brand href="/#home">
-              <Image
-                src={Logo}
-                width={70}
-                className="m-auto img-responsive logo-img"
-                alt="Aloe vera"
-              />
-            </Navbar.Brand>
-          </Col>
-          <Col xxl={4} xl={4} lg={4} md={5} sm={6} xs={6} className="px-0">
-            <Nav className="aloe-vera-links justify-content-end">
-              <Nav.Link href="/#home">Home</Nav.Link>
-              <Nav.Link href="/#about-row">About</Nav.Link>
-              <Nav.Link href="/products">Products</Nav.Link>
-              <Nav.Item className="d-flex align-items-center">
-                <LanguageSwitcher />
-              </Nav.Item>
-            </Nav>
-          </Col>
-        </Row>
-      </Navbar>
-    </div>
+    <Navbar expand="lg" className="border-bottom px-3">
+      <Navbar.Brand href="/">
+        {" "}
+        <Image
+          src={Logo}
+          width={70}
+          className="m-auto img-responsive logo-img"
+          alt="Aloe vera"
+        />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav className="align-items-center pb-xxl-0 pb-xl-0 pb-lg-0 pb-md-4 pb-sm-4">
+          <Nav.Link href="/#home">Home</Nav.Link>
+          <Nav.Link href="/#about-row">About</Nav.Link>
+          <Nav.Link href="/products">Products</Nav.Link>
+          <Nav.Item className="d-flex align-items-center">
+            <LanguageSwitcher />
+          </Nav.Item>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
