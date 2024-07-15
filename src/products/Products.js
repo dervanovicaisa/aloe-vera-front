@@ -110,7 +110,7 @@ function Products({
   };
   return (
     <div id="products" className="py-5 w-100 m-auto">
-      <Row className="align-items-center px-5  px-sm-2 m-sm-auto pb-4 w-100 justify-content-center">
+      <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-2 m-sm-auto pb-4 w-100 justify-content-center">
         <Col
           xxl={12}
           xl={12}
@@ -207,7 +207,7 @@ function Products({
           </Row>
         </Col>
       </Row>
-      <Row className="gap-3 justify-content-center w-100 px-5 px-sm-2 m-sm-auto list-of-products">
+      <Row className="gap-3 justify-content-center w-100 px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-2 m-sm-auto list-of-products">
         {filteredProducts.map((pr, idx) => (
           <Col key={idx} id={pr.category}>
             <ProductCard

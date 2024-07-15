@@ -25,11 +25,15 @@
     border: 1px solid var(--bs-gray-400);
   }
   #products.popular-products .card {
-    min-width: 183px;
+    min-width: 179px;
     margin-bottom: 20px;
   }
   #products.popular-products .card .card-title {
     font-size: 1em;
+  }
+  #products.popular-products .list-of-pop-products {
+    align-content: baseline;
+    align-items: baseline;
   }
 }
 @media (min-width: 320px) and (max-width: 376px) {

@@ -27,7 +27,7 @@ function Header({ product, setProduct }) {
               />
             </Navbar.Brand>
           </Col>
-          <Col xxl={4} xl={4} lg={4} md={5} sm={6} xs={6}>
+          <Col xxl={4} xl={4} lg={4} md={5} sm={6} xs={6} className="px-0">
             <Nav className="aloe-vera-links justify-content-end">
               <Nav.Link href="/#home">Home</Nav.Link>
               <Nav.Link href="/#about-row">About</Nav.Link>
