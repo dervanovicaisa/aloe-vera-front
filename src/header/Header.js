@@ -20,7 +20,7 @@ function Header({ product, setProduct }) {
         {" "}
         <Image
           src={Logo}
-          width={70}
+          width={50}
           className="m-auto img-responsive logo-img"
           alt="Aloe vera"
         />
