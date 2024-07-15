@@ -72,7 +72,7 @@
 .filter-icon {
   font-size: small;
 }
-@media (max-width: 700px) and (min-width: 425px) {
+@media (max-width: 700px) and (min-width: 572px) {
   .col-search {
     width: auto;
   }
@@ -99,7 +99,7 @@
     font-size: smaller;
   }
 }
-@media only screen and (max-width: 424px) {
+@media only screen and (max-width: 572px) {
   .dropdown-item {
     font-size: x-small;
   }

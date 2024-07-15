@@ -1,14 +1,16 @@
-.language-switcher {
-  border: 1px solid var(--bs-border-color);
+#language-dropdown {
+  outline: none;
+  border: none;
 }
-
-.language-select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: white;
+.language-dropdown-box .dropdown-menu {
+  min-width: 80px;
+  margin: auto;
+  text-align: center;
 }
-.language-select:hover {
-  background-color: var(--bs-border-color);
+.language-dropdown-box .dropdown-menu.show {
+  width: auto;
+  height: auto;
+}
+.language-dropdown-box .dropdown-item.active {
+  background-color: var(--bs-gray-200);
 }

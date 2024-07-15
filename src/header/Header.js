@@ -1,9 +1,8 @@
 import { Nav, Navbar, Image } from "react-bootstrap";
 import "./header.css";
 import Logo from "../assets/aloe-vera-logo.png";
-// import { Basket2 } from "react-bootstrap-icons";
 import { useEffect } from "react";
-// import LanguageSwitcher from "../assets/google-translate/language-switcher";
+import LanguageSwitcher from "../assets/google-translate/language-switcher";
 function Header({ product, setProduct }) {
   const LSProducts = localStorage.getItem("productItem");
   useEffect(() => {
@@ -29,9 +28,9 @@ function Header({ product, setProduct }) {
           <Nav.Link href="/#home">Home</Nav.Link>
           <Nav.Link href="/#about-row">About</Nav.Link>
           <Nav.Link href="/products">Products</Nav.Link>
-          {/* <Nav.Item className="d-flex align-items-center">
+          <Nav.Item className="d-flex align-items-center">
             <LanguageSwitcher />
-          </Nav.Item> */}
+          </Nav.Item>
         </Nav>
       </div>
     </Navbar>

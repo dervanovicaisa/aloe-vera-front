@@ -33,6 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white;
+  position: unset !important;
 }
 
 code {
@@ -147,12 +148,9 @@ code {
   text-align: justify !important;
 }
 
-.skiptranslate iframe,
-.VIpgJd-ZVi9od-ORHb table,
-#google_translate_element {
-  /* visibility: hidden !important;
+.skiptranslate iframe.skiptranslate {
   position: absolute;
-  top: -200px; */
+  visibility: hidden !important;
 }
 
 .VIpgJd-ZVi9od-LgbsSe {

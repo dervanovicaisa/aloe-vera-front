@@ -1,41 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./lang.css";
+import { Dropdown } from "react-bootstrap";
+import UKFlag from "../united-kingdom.png";
+import MNEFlag from "../montenegro.png";
+
 const LanguageSwitcher = () => {
-  const [lang, setLang] = useState("English");
-  useEffect(() => {
-    // const addScript = () => {
-    //   console.log("Adding Google Translate script");
-    //   const existingScript = document.querySelector(
-    //     'script[src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"]'
-    //   );
-    //   if (!existingScript) {
-    //     const script = document.createElement("script");
-    //     script.type = "text/javascript";
-    //     script.async = true;
-    //     script.src =
-    //       "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    //     document.body.appendChild(script);
-    //   }
-    // };
-    // addScript(); // Call addScript function only once
-    // return () => {
-    //   // Cleanup function to remove the script if needed
-    //   const existingScript = document.querySelector(
-    //     'script[src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"]'
-    //   );
-    //   if (existingScript) {
-    //     document.body.removeChild(existingScript);
-    //   }
-    // };
-  }, []); // Empty dependency array ensures this effect runs only once
+  const [lang, setLang] = useState("english");
 
   const handleLanguageChange = (event) => {
-    const lang = event.target.value;
+    const lang = event;
 
     if (lang === "bosnian" || lang === "bosanski") {
-      setLang("Montenegrin");
+      setLang("montenegrin");
     } else if (lang === "engleski" || lang === "english") {
-      setLang("English");
+      setLang("english");
     }
     const frame = document.querySelector(
       "iframe.VIpgJd-ZVi9od-xl07Ob-OEVmcd.skiptranslate"
@@ -56,20 +34,28 @@ const LanguageSwitcher = () => {
     }
   };
   return (
-    <div>
-      <select
-        className="language-switcher"
-        onChange={(e) => handleLanguageChange(e)}
-        defaultValue={lang}
-        defaultChecked={lang}
-      >
-        <option className="language-select" value="engleski">
-          English
-        </option>
-        <option className="language-select" value="bosanski">
-          Montenegrin
-        </option>
-      </select>
+    <div className="language-dropdown-box">
+      <Dropdown onSelect={handleLanguageChange} align={"end"}>
+        <Dropdown.Toggle variant="white" id="language-dropdown">
+          {lang === "engleski" || lang === "english" ? (
+            <img src={UKFlag} alt="UK" width={20} className="flag-icon" />
+          ) : lang === "bosanski" || lang === "montenegrin" ? (
+            <img src={MNEFlag} alt="MNE" width={20} className="flag-icon" />
+          ) : (
+            "Select Language"
+          )}
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="engleski" defaultValue={"engleski"}>
+            <img src={UKFlag} alt="UK" width={20} className="flag-icon" />
+          </Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item eventKey="bosanski" defaultValue={"bosanski"}>
+            <img src={MNEFlag} alt="MNE" width={20} className="flag-icon" />
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <div id="google_translate_element" style={{ display: "none" }}></div>
     </div>
   );
