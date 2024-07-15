@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import About from "./about/About";
 import Home from "./home/Home";
 import PopularProducts from "./products/popular-products/PopularProducts";
