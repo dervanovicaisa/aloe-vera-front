@@ -9,7 +9,10 @@ function About() {
     <div id="about">
       <Row className="px-sm-4 pt-5">
         <Col xxl={12} xl={12} lg={12} md={12} sm={12} xs={12}>
-          <Row id="about-row" className="p-4 gap-3 align-items-center">
+          <Row
+            id="about-row"
+            className="p-xxl-4 p-xl-4 p-lg-4 p-md-4 p-sm-2 gap-3 align-items-center"
+          >
             <Col
               xxl={4}
               xl={4}

@@ -24,7 +24,7 @@
 .dropdown-menu-products {
   color: var(--bs-secondary-text-emphasis);
   border-radius: 20px;
-  padding: 6px 16px;
+  padding: 6px 9px;
   font-size: medium;
   background-color: var(--bs-gray-100);
   width: min-content;
@@ -37,7 +37,7 @@
 #products .card {
   min-width: 15rem;
 }
-@media (min-width: 375px) and (max-width: 426px) {
+@media (min-width: 375px) and (max-width: 576px) {
   #products .card {
     min-width: 150px;
     margin-bottom: 15px;

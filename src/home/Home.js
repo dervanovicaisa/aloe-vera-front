@@ -13,7 +13,7 @@ function Home() {
             md={12}
             sm={12}
             sx={12}
-            className="px-5 py-sm-5 py-xxl-0 py-xl-0"
+            className="px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-5 py-sm-5 py-xxl-0 py-xl-0"
           >
             <div>
               <div className="d-flex flex-column gap-3">
