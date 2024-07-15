@@ -9,13 +9,13 @@ function Main({ productsCategories, product, setProduct, onProductChange }) {
   return (
     <div>
       <Home />
-      <About />
-      <PopularProducts
-        productsCategories={productsCategories}
+     <PopularProducts
+       productsCategories={productsCategories}
         product={product}
         setProduct={setProduct}
         productOnChange={setProductsOnChange}
       />
+      <About />
     </div>
   );
 }
