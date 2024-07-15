@@ -40,7 +40,7 @@ function PopularProducts({
           xs={11}
           className="pb-5 pt-3 px-2 py-xxl-4 py-xl-4 px-xxl-5 px-xl-5 box-card m-auto"
         >
-          <Row className="list-of-pop-products justify-content-center gap-xxl-3 gap-xl-4 gap-lg-3 gap-md-3 gap-sm-0 gap-xs-0">
+          <Row className="list-of-pop-products justify-content-center gap-xxl-3 gap-xl-4 gap-lg-3 gap-md-3 gap-sm-0 gap-xs-0 flex-nowrap overflow-x-scroll">
             {productsCategories["foreverFit"].slice(0, 6).map((pr, idx) => (
               <Col
                 key={idx}
