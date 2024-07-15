@@ -184,7 +184,8 @@ code {
   top: -200px;
 }
 
-.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate {
+.VIpgJd-ZVi9od-ORHb-OEVmcd.skiptranslate,
+#goog-gt-tt {
   visibility: hidden !important;
 }
 .cursor-pointer {
