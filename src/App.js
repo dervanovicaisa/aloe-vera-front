@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import Header from "./header/Header";
 import Products from "./products/Products";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./Main";
 import Footer from "./footer/Footer";
 import Loader from "./assets/loader/Loader";
-import Cart from "./cart/Cart";
 import { Toaster } from "react-hot-toast";
 function App() {
   const [productsCategories, setProductCategories] = useState([]);
@@ -82,10 +80,6 @@ function App() {
                   onProductChange={onProductChange}
                 />
               }
-            ></Route>
-            <Route
-              path="/cart"
-              element={<Cart product={product} setProduct={setProduct} />}
             ></Route>
           </Route>
         </Routes>

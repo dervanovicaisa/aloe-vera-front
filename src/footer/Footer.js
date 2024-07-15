@@ -6,16 +6,16 @@ const Footer = () => {
   return (
     <footer id="footer" className="footer mt-auto pt-5 border-top">
       <Container className="pt-lg-4 pt-0">
-        <Row className="pb-5">
-          <Col md={4}>
+        <Row className="pb-5 max-width">
+          <Col xxl={4} xl={4} lg={4} md={4}>
             <h4 className="text-dark">About Us</h4>
             <p className="w-75">
               We are committed to providing high-quality products and excellent
               customer service.
             </p>
-            <h5 className="text-dark">Connect With Us</h5>
-            <address className="d-flex flex-column">
-              <span>
+            <h4 className="text-dark">Connect With Us</h4>
+            <div className="d-flex flex-column">
+              <p>
                 Instagram:
                 <a
                   className="mx-1"
@@ -25,8 +25,8 @@ const Footer = () => {
                 >
                   @aloe_vera_vh
                 </a>
-              </span>
-              <span>
+              </p>
+              <p>
                 Email:{" "}
                 <a
                   className="text-decoration-none"
@@ -34,25 +34,30 @@ const Footer = () => {
                 >
                   aloeveravh@gmail.com
                 </a>
-              </span>
-              {/* <span>Phone: 069549938</span> */}
-            </address>
+              </p>
+            </div>
           </Col>
-          <Col md={6} className="footer-form">
-            <h3 className="text-dark">Subscribe to Our Newsletter</h3>
-            <Form className="d-flex align-items-center justify-content-between mt-4">
-              <Form.Group controlId="formBasicEmail" className="w-100">
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
-              <Button variant="success" type="submit" className="mx-2">
-                Subscribe
-              </Button>
+          <Col xxl={4} xl={4} lg={4} md={6} className="footer-form">
+            <h4 className="text-dark">Subscribe to Our Newsletter</h4>
+            <Form className="mt-4">
+              <Row className="align-items-center">
+                <Col sm={7}>
+                  <Form.Group controlId="formBasicEmail" className="w-100">
+                    <Form.Control type="email" placeholder="Enter email" />
+                  </Form.Group>
+                </Col>
+                <Col xxl={3} xl={3} lg={3} md={3} sm={2}>
+                  <Button variant="success" type="submit" className="mx-2">
+                    Subscribe
+                  </Button>
+                </Col>
+              </Row>
             </Form>
           </Col>
         </Row>
       </Container>
       <div className="aloe-vera-png">
-        <Image src={AloeVerPng} />
+        <Image src={AloeVerPng} className="img-responsive" />
       </div>
       <div className="text-center text-light bg-success py-3">
         <p className="mb-0 pb-0">

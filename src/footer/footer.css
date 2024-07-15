@@ -2,6 +2,10 @@
   background: var(--main-green-ligth);
   color: var(--bs-dark-text-emphasis);
 }
+.footer .container {
+  position: relative;
+  z-index: 9999;
+}
 .footer a {
   color: var(--bs-dark-text-emphasis);
 }
@@ -14,9 +18,44 @@
   position: absolute;
   right: 0;
   margin-top: -357px;
+  z-index: 1;
 }
 .aloe-vera-png img {
-  width: 357px;
+  max-width: 357px;
+  width: auto;
+}
+@media only-screen and (max-width: 2560px) {
+  .footer .container .max-width {
+    width: max-content;
+  }
+  .aloe-vera-png img {
+    max-width: 600px;
+  }
+  .aloe-vera-png {
+    margin-top: -600px;
+  }
+}
+@media only-screen and (min-width: 1024px) {
+  .footer .container .max-width {
+    width: auto;
+  }
+  .aloe-vera-png img {
+    max-width: 357px;
+  }
+  .aloe-vera-png {
+    margin-top: -357px;
+  }
+}
+@media only-screen and (max-width: 1024px) {
+  .footer .container .max-width {
+    width: auto;
+  }
+  .aloe-vera-png img {
+    max-width: 357px;
+  }
+  .aloe-vera-png {
+    margin-top: -357px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .footer .container {

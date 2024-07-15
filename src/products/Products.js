@@ -109,15 +109,28 @@ function Products({
     scrollUp();
   };
   return (
-    <div id="products" className="px-2 px-md-5 py-5 d-flex flex-column gap-4">
-      <Row className="mx-0 px-2 align-items-center justify-content-center">
-        <Col lg={12} className="popular-box">
-          <h3 className="popular-title text-dark">Our Produtcs</h3>
-          <p className="popular-text text-dark w-100 w-lg-50">
-            Explore Aloe Vera's power in skincare, haircare, and wellness.
-            Pamper with soothing products. Revitalize locks. Discover health
-            benefits. Shop now!
-          </p>
+    <div id="products" className="py-5 w-100 m-auto">
+      <Row className="align-items-center px-5  px-sm-2 m-sm-auto pb-4 w-100 justify-content-center">
+        <Col
+          xxl={12}
+          xl={12}
+          lg={12}
+          md={12}
+          sm={12}
+          xs={12}
+          className="text-center"
+        >
+          <h1 className="text-dark">Our Produtcs</h1>
+          <div className="pt-4">
+            <p className="text-dark mb-0">
+              Explore Aloe Vera's power in skincare, haircare, and wellness.
+            </p>
+            <p className="text-dark mb-0">
+              Pamper with soothing products. Revitalize locks. Discover health
+              benefits.
+            </p>
+            <p className="text-dar">Shop now!</p>
+          </div>
         </Col>
         <Col lg={12} className="pb-3 pt-5 px-0" id="filterBox">
           <Row
@@ -127,7 +140,15 @@ function Products({
                 : "search align-items-center"
             }
           >
-            <Col lg={3} className="col">
+            <Col
+              xxl={3}
+              xl={3}
+              lg={item ? 3 : 6}
+              md={6}
+              sm={item ? 12 : 10}
+              xs={item ? 12 : 10}
+              className="col"
+            >
               <FormGroup>
                 <FormControl
                   type="text"
@@ -139,8 +160,12 @@ function Products({
               </FormGroup>
             </Col>
             <Col
-              lg={6}
-              sm={item ? 12 : 6}
+              xxl={6}
+              xl={6}
+              lg={item ? 6 : 2}
+              md={item ? 6 : 2}
+              sm={item ? 12 : 2}
+              xs={item ? 12 : 2}
               className={
                 item ? "text-left pt-lg-0 pt-2 ps-lg-0" : "px-0 text-left"
               }
@@ -182,9 +207,9 @@ function Products({
           </Row>
         </Col>
       </Row>
-      <Row className="mx-0 category-box gap-3 gap-lg-0 justify-content-center">
+      <Row className="gap-3 justify-content-center w-100 px-5 px-sm-2 m-sm-auto list-of-products">
         {filteredProducts.map((pr, idx) => (
-          <div className="product-col" key={idx} id={pr.category}>
+          <Col key={idx} id={pr.category}>
             <ProductCard
               src={pr.image_url}
               title={pr.name}
@@ -194,7 +219,7 @@ function Products({
               setProduct={setProduct}
               setProductsOnChange={setProductsOnChange}
             />
-          </div>
+          </Col>
         ))}
       </Row>
       <div

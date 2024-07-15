@@ -1,54 +1,15 @@
-.home {
+.home-row {
   background: var(--main-green-ligth);
 }
-.left-text {
-  /* padding-left: 55px; */
-  display: flex;
-  align-items: center;
+.md-bg-added {
+  background: unset;
 }
-.right-text {
-  text-align: center;
-}
-.title {
-  font-size: 2.5rem;
-}
-.subtext {
-  font-size: medium;
-}
-.image {
-  width: -webkit-fill-available;
-}
-#mobile-text {
-  position: absolute;
-  top: 156px;
-  margin-left: 20px;
-}
-@media (max-width: 700px) and (min-width: 425px) {
-  .home {
-    background-image: url("../assets/cover-image1.jpg");
+@media (max-width: 1024px) and (min-width: 320px) {
+  .md-bg-added {
+    background: url("../assets/cover-image1.jpg") no-repeat;
     background-size: cover;
-    background-blend-mode: darken;
-    background-position: -135px;
   }
-  .left-text {
-    padding-left: 30px;
-    background: #f1f1f1b5;
-    height: 440px;
-  }
-}
-@media only screen and (max-width: 424px) {
-  #mobile-text {
-    top: 90px;
-  }
-  .left-text {
-    height: 375px;
-    padding-left: 30px;
-    background: #f1f1f1b5;
-  }
-  .home {
-    background-image: url("../assets/cover-image1.jpg");
-    background-size: cover;
-    background-blend-mode: darken;
-    background-position: -135px;
+  .home-row {
+    background: rgba(255, 255, 255, 0.747);
   }
 }
