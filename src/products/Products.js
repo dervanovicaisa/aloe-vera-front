@@ -118,7 +118,7 @@ function Products({
           md={12}
           sm={12}
           xs={12}
-          className="text-center"
+          className="text-center d-xxl-block d-xl-block d-lg-none d-md-none d-sm-none"
         >
           <h1 className="text-dark">Our Produtcs</h1>
           <div className="pt-4">
@@ -147,7 +147,7 @@ function Products({
               md={6}
               sm={item ? 12 : 10}
               xs={item ? 12 : 10}
-              className="col"
+              className="col d-xxl-block d-xl-block d-lg-block d-md-block d-sm-none"
             >
               <FormGroup>
                 <FormControl
