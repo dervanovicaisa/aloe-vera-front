@@ -110,7 +110,7 @@ function Products({
   };
   return (
     <div id="products" className="py-5 w-100 m-auto">
-      <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto pb-4 w-100 justify-content-center">
+      <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto pb-4 w-100 justify-content-center d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none">
         <Col
           xxl={12}
           xl={12}
