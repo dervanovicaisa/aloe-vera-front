@@ -41,3 +41,6 @@
   #products.popular-products .list-of-pop-products {
     display: flex;
   } */
+.overflow-x-scroll{
+overflow-x: scroll;
+}
