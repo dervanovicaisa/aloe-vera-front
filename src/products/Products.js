@@ -69,10 +69,10 @@ function Products({
       <div className="inner-product">
         <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto pb-4 w-100 justify-content-center">
           <Col
-            xxl={12}
-            xl={12}
-            lg={12}
-            md={12}
+            xxl={4}
+            xl={4}
+            lg={6}
+            md={6}
             sm={12}
             xs={12}
             className="text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center pb-sm-3 pb-5"
