@@ -17,33 +17,31 @@ function Home() {
           >
             <div>
               <div className="d-flex flex-column gap-3">
-                <h1>Feel Comfortable in Flawless Skin</h1>
-                <p className="text-justify d-lg-block d-md-none d-sm-none">
-                  Achieve a natural, smooth complexion with Aloe Vera
-                  long-lasting, non-oily coverage foundation. This lightweight
-                  foundation blends seamlessly into your skin, providing a
-                  flawless finish that lasts all day. Enriched with the soothing
-                  properties of Aloe Vera, it hydrates your skin while ensuring
-                  a matte, shine-free look. Perfect for all skin types, this
-                  foundation offers buildable coverage that conceals
-                  imperfections without clogging pores. Experience the perfect
-                  balance of skincare and makeup with our Aloe Vera foundation,
-                  giving you a radiant, healthy glow.
+                <h1>Osećajte se prijatno u besprekornoj koži.</h1>
+                <p className="text-justify d-lg-block d-md-block d-sm-none">
+                  Postignite prirodnu, glatku kožu uz podlogu sa Aloe Verom koja
+                  pruža dugotrajnu, nemasnu pokrivenost. Ova lagana podloga
+                  besprekorno se stapa sa vašom kožom, pružajući savršen finiš
+                  koji traje cijeli dan. Obogaćena umirujućim svojstvima Aloe
+                  Vere, hidrira vašu kožu dok obezbjeđuje mat izgled bez sjaja.
+                  Savršena za sve tipove kože, ova podloga nudi nadogradivu
+                  pokrivenost koja prekriva nesavršenosti bez zapušavanja pora.
+                  Iskusite savršen balans njege kože i šminke sa našom podlogom
+                  sa Aloe Verom, koja vam daje blistav i zdrav sjaj.
                 </p>
-                <p className="text-justify d-lg-none d-md-block d-sm-block d-xs-block">
-                  Achieve a natural, smooth complexion with Aloe Vera
-                  long-lasting, non-oily coverage foundation. This lightweight
-                  foundation blends seamlessly into your skin, providing a
-                  flawless finish that lasts all day. Enriched with the soothing
-                  properties of Aloe Vera, it hydrates your skin while ensuring
-                  a matte, shine-free look.
+                <p className="text-justify d-lg-none d-md-none d-sm-block d-xs-block">
+                  Postignite prirodnu, glatku kožu uz podlogu sa Aloe Verom koja
+                  pruža dugotrajnu, nemasnu pokrivenost. Ova lagana podloga
+                  besprekorno se stapa sa vašom kožom, pružajući savršen finiš
+                  koji traje cijeli dan. Obogaćena umirujućim svojstvima Aloe
+                  Vere, hidrira vašu kožu dok obezbjeđuje mat izgled bez sjaja.
                 </p>
                 <Button
                   className="shop-now w-50"
                   variant="success"
                   href="products"
                 >
-                  Shop now
+                  Kupite sad
                 </Button>
               </div>
             </div>
@@ -52,6 +50,7 @@ function Home() {
             <Image
               src={AloeVeraImage}
               loading="lazy"
+              width={300}
               className="image w-100 img-responsive"
             />
           </Col>

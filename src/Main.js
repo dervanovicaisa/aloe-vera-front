@@ -2,20 +2,21 @@ import About from "./about/About";
 import Home from "./home/Home";
 import PopularProducts from "./products/popular-products/PopularProducts";
 
-function Main({ productsCategories, product, setProduct, onProductChange }) {
+function Main({ productsCategories, onProductChange }) {
   function setProductsOnChange(e) {
     onProductChange(e);
   }
   return (
     <div>
       <Home />
-     <PopularProducts
-       productsCategories={productsCategories}
-        product={product}
-        setProduct={setProduct}
+      <About
+        productsCategories={productsCategories}
         productOnChange={setProductsOnChange}
       />
-      <About />
+      <PopularProducts
+        productsCategories={productsCategories}
+        productOnChange={setProductsOnChange}
+      />
     </div>
   );
 }

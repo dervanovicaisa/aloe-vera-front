@@ -1,27 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./products.css";
-import {
-  Button,
-  Col,
-  Dropdown,
-  FormControl,
-  FormGroup,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import ProductCard from "../assets/card/Card";
-import { ArrowUp, Funnel, X } from "react-bootstrap-icons";
+import { ArrowUp } from "react-bootstrap-icons";
 
 function Products({
   productCategories,
   isData,
-  product,
-  setProduct,
   onProductChange,
+  setFilteredProducts,
+  filteredProducts,
 }) {
-  const [item, setItem] = useState("");
-  const [flattenedProducts, setFlattenedProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState(flattenedProducts);
-  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     function changeProduct() {
       const flattenProducts = (productCategories) => {
@@ -33,7 +22,6 @@ function Products({
         );
       };
       const flattenedProducts = flattenProducts(productCategories);
-      setFlattenedProducts(flattenedProducts);
       setFilteredProducts(flattenedProducts);
     }
 
@@ -43,31 +31,18 @@ function Products({
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [productCategories]);
-
-  useEffect(() => {
-    const filtered = flattenedProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  }, [searchQuery, flattenedProducts]);
+  }, [productCategories, setFilteredProducts]);
 
   if (!isData) {
     return "Loading...";
   }
-  function onClickSetCategory(category) {
-    setItem(category);
-  }
   function onScroll() {
-    const id = document.getElementById("filterBox");
     const scrollUp = document.getElementById("scrollUp");
     const footer = document.getElementById("footer");
-    if (id !== null && scrollUp !== null) {
+    if (scrollUp !== null) {
       if (window.scrollY > 200) {
-        id.classList.add("on-scroll-box");
         scrollUp.classList.remove("invisible");
       } else {
-        id.classList.remove("on-scroll-box");
         scrollUp.classList.add("invisible");
       }
       if (footer !== null) {
@@ -89,148 +64,54 @@ function Products({
   function setProductsOnChange(e) {
     onProductChange(e);
   }
-  function onSearch(e) {
-    setSearchQuery(e.target.value);
-  }
-  function removeUppercase(text) {
-    let result = "";
-    for (let char of text) {
-      if (char === char.toUpperCase()) {
-        result += " " + char;
-      } else {
-        result += char;
-      }
-    }
-    return result;
-  }
-
-  const handleRemoveItem = () => {
-    setItem("");
-    scrollUp();
-  };
   return (
     <div id="products" className="py-5 w-100 m-auto">
-      <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto pb-4 w-100 justify-content-center d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none">
-        <Col
-          xxl={12}
-          xl={12}
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          className="text-center d-xxl-block d-xl-block d-lg-none d-md-none d-sm-none"
-        >
-          <h1 className="text-dark">Our Produtcs</h1>
-          <div className="pt-4">
-            <p className="text-dark mb-0">
-              Explore Aloe Vera's power in skincare, haircare, and wellness.
-            </p>
-            <p className="text-dark mb-0">
-              Pamper with soothing products. Revitalize locks. Discover health
-              benefits.
-            </p>
-            <p className="text-dar">Shop now!</p>
-          </div>
-        </Col>
-        <Col lg={12} className="pb-3 pt-5 px-0" id="filterBox">
-          <Row
-            className={
-              item
-                ? "search align-items-center pe-3"
-                : "search align-items-center"
-            }
-          >
-            <Col
-              xxl={3}
-              xl={3}
-              lg={item ? 3 : 6}
-              md={6}
-              sm={item ? 12 : 10}
-              xs={item ? 12 : 10}
-              className="col d-xxl-block d-xl-block d-lg-block d-md-block d-sm-none"
-            >
-              <FormGroup>
-                <FormControl
-                  type="text"
-                  className="search"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={onSearch}
-                ></FormControl>
-              </FormGroup>
-            </Col>
-            <Col
-              xxl={6}
-              xl={6}
-              lg={item ? 6 : 2}
-              md={item ? 6 : 2}
-              sm={item ? 12 : 2}
-              xs={item ? 12 : 2}
-              className={
-                item ? "text-left pt-lg-0 pt-2 ps-lg-0" : "px-0 text-left"
-              }
-            >
-              <Dropdown
-                className={"dropdown-menu-products d-flex align-items-center"}
-              >
-                <Dropdown.Toggle
-                  className="products-toggle text-dark text-lowercase"
-                  id="productsToggle"
-                >
-                  {item ? (
-                    <span>{removeUppercase(item)}</span>
-                  ) : (
-                    <Funnel className="filter-icon" />
-                  )}
-                </Dropdown.Toggle>
-                {item && (
-                  <X
-                    id="removeBtn"
-                    className="text-dark undo-icon ms-2 cursor-pointer"
-                    onClick={() => handleRemoveItem()}
-                  />
-                )}
-                <Dropdown.Menu>
-                  {Object.keys(productCategories).map((category) => (
-                    <Dropdown.Item
-                      key={category}
-                      href={"#" + category}
-                      className="text-uppercase"
-                      onClick={() => onClickSetCategory(category)}
-                    >
-                      {removeUppercase(category)}
-                    </Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      <Row className="justify-content-center w-100 px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto list-of-products">
-        {filteredProducts.map((pr, idx) => (
+      <div className="inner-product">
+        <Row className="align-items-center px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-4 m-sm-auto pb-4 w-100 justify-content-center">
           <Col
-            key={idx}
-            id={pr.category}
-            xxl={3}
-            xl={4}
-            lg={4}
-            md={4}
+            xxl={12}
+            xl={12}
+            lg={12}
+            md={12}
             sm={12}
             xs={12}
+            className="text-xxl-center text-xl-center text-lg-center text-md-center text-sm-start pb-5"
           >
-            <ProductCard
-              src={pr.image_url}
-              title={pr.name}
-              description={pr.price}
-              url={pr.url}
-              product={product}
-              setProduct={setProduct}
-              setProductsOnChange={setProductsOnChange}
-            />
+            <h1 className="text-dark">Naši proizvodi</h1>
+            <div className="pt-4">
+              <p className="text-dark mb-0">
+                Istražite moć Aloe Vere u njezi kože, kose i wellnessu.
+              </p>
+              <p className="text-dark mb-0">
+                Mazite se umirujućim proizvodima. Oživite kosu. Otkrijte
+                zdravstvene benefite.
+              </p>
+            </div>
           </Col>
-        ))}
-      </Row>
+        </Row>
+        <Row className="justify-content-center w-100 px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-sm-0 m-sm-auto list-of-products">
+          {filteredProducts.map((pr, idx) => (
+            <Col
+              key={idx}
+              id={pr.category}
+              xxl={3}
+              xl={4}
+              lg={4}
+              md={4}
+              sm={12}
+              xs={12}
+            >
+              <ProductCard
+                src={pr.image_url}
+                title={pr.name}
+                description={pr.price}
+                url={pr.url}
+                setProductsOnChange={setProductsOnChange}
+              />
+            </Col>
+          ))}
+        </Row>
+      </div>
       <div
         id="scrollUp"
         className="scroll-up-btn invisible"

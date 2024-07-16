@@ -8,8 +8,8 @@ import Loader from "./assets/loader/Loader";
 import { Toaster } from "react-hot-toast";
 function App() {
   const [productsCategories, setProductCategories] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(productsCategories);
   const [isData, setIsData] = useState(false);
-  const [product, setProduct] = useState([]);
   const getProductsList = () => {
     fetch(
       "https://raw.githubusercontent.com/dervanovicaisa/data/main/data.json"
@@ -24,22 +24,22 @@ function App() {
       .then((data) => {
         setIsData(true);
         setProductCategories(data);
+        setFilteredProducts(productsCategories);
       })
       .catch((error) => {
         setIsData(false);
         console.error("Error fetching data:", error);
       });
   };
-
   useEffect(() => {
     if (productsCategories.length === 0) {
       getProductsList();
     }
+    // eslint-disable-next-line
   }, [productsCategories.length]);
-  function onProductChange(e) {
-    setProduct([...e]);
-    localStorage.setItem("productItem", JSON.stringify(product));
-  }
+
+  function onProductChange(e) {}
+
   if (!isData) {
     return (
       <div>
@@ -49,12 +49,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Header
-        product={product}
-        setProduct={setProduct}
-        onProductChange={onProductChange}
-      />
       <BrowserRouter>
+        <Header
+          productsCategories={productsCategories}
+          setFilteredProducts={setFilteredProducts}
+        />
         <Routes>
           <Route path="/">
             <Route
@@ -62,8 +61,6 @@ function App() {
               element={
                 <Main
                   productsCategories={productsCategories}
-                  product={product}
-                  setProduct={setProduct}
                   onProductChange={onProductChange}
                 />
               }
@@ -75,9 +72,9 @@ function App() {
                   productCategories={productsCategories}
                   setProductCategories={setProductCategories}
                   isData={isData}
-                  product={product}
-                  setProduct={setProduct}
                   onProductChange={onProductChange}
+                  setFilteredProducts={setFilteredProducts}
+                  filteredProducts={filteredProducts}
                 />
               }
             ></Route>

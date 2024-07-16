@@ -24,7 +24,7 @@ function ProductCard({ src, title, description, url }) {
             <Card.Title>
               <a
                 href={url}
-                className="text-dark w-100 text-wrap"
+                className="text-dark w-100 fs-5 text-wrap"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -35,8 +35,8 @@ function ProductCard({ src, title, description, url }) {
           <Col xxl={12} xl={12} lg={12}>
             <Row className="product-details align-items-center justify-content-between">
               <Col>
-                <Card.Text className="mb-0 pb-0 d-flex gap-1">
-                  {description}
+                <Card.Text className="mb-0 pb-0 d-flex gap-1 p">
+                  {description?.replace("EUR", "€")}
                 </Card.Text>
               </Col>
               <Col className="text-end product-card-btn-col">

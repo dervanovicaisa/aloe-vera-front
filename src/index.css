@@ -228,3 +228,10 @@ p {
 .webkit-width-fit {
   width: -webkit-fill-available !important;
 }
+.overflow-x-auto {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}

@@ -16,9 +16,10 @@
   z-index: 2;
 }
 .scroll-up-btn .btn {
-  background: var(--main-green-ligth) !important;
-  width: 44px !important;
-  height: 42px !important;
+  background: var(--bs-gray-300) !important;
+  width: 60px !important;
+  height: 60px !important;
+  font-size: x-large;
 }
 
 .dropdown-menu-products {
@@ -33,4 +34,14 @@
 #productsToggle {
   background-color: transparent;
   border-color: transparent;
+}
+
+#products {
+  background: url("../assets/aloe-vera-bg.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#products .inner-product {
+  backdrop-filter: blur(4px);
 }
