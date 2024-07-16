@@ -8,7 +8,6 @@ function Header({ productsCategories, setFilteredProducts }) {
   const [item, setItem] = useState("");
   const [flattenedProducts, setFlattenedProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const location = window.location;
   const navigate = useNavigate();
   const { hash } = useLocation();
   function onClickSetCategory(category) {
