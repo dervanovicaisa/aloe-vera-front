@@ -75,16 +75,13 @@ function Products({
             md={12}
             sm={12}
             xs={12}
-            className="text-xxl-center text-xl-center text-lg-center text-md-center text-sm-start pb-5"
+            className="text-xxl-center text-xl-center text-lg-center text-md-center text-sm-center pb-sm-3 pb-5"
           >
             <h1 className="text-dark">Naši proizvodi</h1>
-            <div className="pt-4">
-              <p className="text-dark mb-0">
-                Istražite moć Aloe Vere u njezi kože, kose i wellnessu.
-              </p>
-              <p className="text-dark mb-0">
-                Mazite se umirujućim proizvodima. Oživite kosu. Otkrijte
-                zdravstvene benefite.
+            <div className="pt-4 pt-sm-2">
+              <p className="text-dark mb-2">
+                Istražite moć Aloe Vere u <u>njezi kože, kose i wellnessu</u>.
+                Otkrijte <u>zdravstvene</u> benefite. Oživite kosu
               </p>
             </div>
           </Col>
@@ -98,8 +95,8 @@ function Products({
               xl={4}
               lg={4}
               md={4}
-              sm={12}
-              xs={12}
+              sm={11}
+              xs={11}
             >
               <ProductCard
                 src={pr.image_url}
